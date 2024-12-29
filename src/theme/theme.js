@@ -1,4 +1,4 @@
-const headerHeight = "500.7px"; // header(110.8px) 높이 + padding(50px)
+const headerHeight = "310.7px"; // header(110.8px) 높이 + padding(50px)
 const contentsPaddingBottom = "30px";
 const color = {
   white: "#FFFFFF",

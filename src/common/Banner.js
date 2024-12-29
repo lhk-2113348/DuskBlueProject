@@ -1,63 +1,104 @@
-import React, { useState, useEffect } from "react";
-import { useTransition, animated, useSpringRef } from "@react-spring/web";
+import { useCallback, useEffect, useState } from "react";
+import { ReactComponent as IntroBanner } from "../images/Banner/IntroBanner.svg";
+import { ReactComponent as SeasonBanner } from "../images/Banner/SeasonBanner.svg";
+import { ReactComponent as CakeBanner } from "../images/Banner/CakeBanner.svg";
+
 import styled from "styled-components";
+import LeftButton from "../images/Icons/leftButton.png";
+import RightButton from "../images/Icons/RightButton.png";
+import { Link } from "react-router-dom";
 
-// styled-components를 사용하여 스타일 정의
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const MainBanner = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-`;
-
-const Page = styled(animated.div)`
-  position: absolute;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+const ArrowButton = styled.button`
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  background: none;
+  border: none;
   color: white;
-  font-weight: 800;
-  font-size: 25em;
-  will-change: transform, opacity;
-  text-shadow: 0px 2px 40px #00000020, 0px 2px 5px #00000030;
-  -webkit-user-select: none;
-  user-select: none;
-  background="lightpink"
+  font-size: 2em;
+  cursor: pointer;
+  transform: translateY(-50%);
+  display: ${(props) => props.display || "none"};
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+const LeftArrow = styled(ArrowButton)`
+  left: 20px;
 `;
 
-const pages = [
-  ({ style }) => <Page style={{ ...style, background: "lightpink" }}>가</Page>,
-  ({ style }) => <Page style={{ ...style, background: "lightblue" }}>B</Page>,
-  ({ style }) => <Page style={{ ...style, background: "lightgreen" }}>C</Page>,
-];
+const RightArrow = styled(ArrowButton)`
+  right: 20px;
+`;
 
-export default function Banner() {
-  const [index, set] = useState(0);
-  const onClick = () => set((state) => (state + 1) % 3);
-  const transRef = useSpringRef();
-  const transitions = useTransition(index, {
-    ref: transRef,
-    keys: null,
-    from: { opacity: 0, transform: "translate3d(100%,0,0)" },
-    enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
-    leave: { opacity: 0, transform: "translate3d(-50%,0,0)" },
-  });
+const BannerImage = styled.div`
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+`;
+const MoreButton = styled(Link)`
+  position: absolute;
+  bottom: 60px;
+  right: 110px; /* 오른쪽으로 20px */
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  display: ${(props) => props.display || "block"};
+  &:hover {
+    color: #d3d3d3;
+  }
+`;
+const Banner = () => {
+  const images = [
+    <IntroBanner key="intro" />,
+    <SeasonBanner key="season" />,
+    <CakeBanner key="cake" />,
+  ];
+  const [img, setImg] = useState(0);
+  const [display, setDisplay] = useState("none");
+
+  const imgChangeLeft = useCallback(() => {
+    setImg((prevImg) => (prevImg - 1 + images.length) % images.length); // 이전 이미지로
+  }, [images.length]);
+
+  const imgChangeRight = useCallback(() => {
+    setImg((prevImg) => (prevImg + 1) % images.length); // 다음 이미지로
+  }, [images.length]);
+
+  const buttonDisplayOn = () => setDisplay("block");
+  const buttonDisplayOff = () => setDisplay("none");
 
   useEffect(() => {
-    transRef.start();
-  }, [index]);
+    const interval = setInterval(() => {
+      imgChangeRight(); // 5초마다 자동으로 이미지를 오른쪽으로 변경
+    }, 5000);
+    return () => clearInterval(interval); // 컴포넌트가 언마운트 될 때 인터벌 정리
+  }, [imgChangeRight]);
 
   return (
-    <Container onClick={onClick}>
-      {transitions((style, i) => {
-        const PageComponent = pages[i];
-        return <PageComponent style={style} />;
-      })}
-    </Container>
+    <MainBanner onPointerOver={buttonDisplayOn} onPointerOut={buttonDisplayOff}>
+      <LeftArrow onClick={imgChangeLeft} display={display}>
+        <img src={LeftButton} alt="LeftButton" />
+      </LeftArrow>
+      <BannerImage>
+        {images[img]}
+        {img === 0 && <MoreButton to="/duskblue-info">more</MoreButton>}
+        {img === 1 && <MoreButton to="/menu">more</MoreButton>}
+        {img === 2 && <MoreButton to="/reservation">more</MoreButton>}
+      </BannerImage>
+      <RightArrow onClick={imgChangeRight} display={display}>
+        <img src={RightButton} alt="RightButton" />
+      </RightArrow>
+    </MainBanner>
   );
-}
+};
+export default Banner;
