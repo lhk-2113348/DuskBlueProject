@@ -4,7 +4,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 20px;
+  margin-top: ${(props) => props.marginTop || "20px"};
 `;
 
 const Emoji = styled.img`
@@ -14,14 +14,16 @@ const Emoji = styled.img`
 `;
 
 const InfoText = styled.p`
-  font-size: 24px;
-  color: ${(props) => props.theme.color.black};
+  font-size: ${(props) => props.fontSize || "24px"};
+  color: ${(props) => props.color || props.theme.color.black};
 `;
-const InfoSection = ({ emojiSrc, text }) => {
+const InfoSection = ({ emojiSrc, text, color, fontSize, marginTop }) => {
   return (
-    <InfoContainer>
+    <InfoContainer marginTop={marginTop}>
       <Emoji src={emojiSrc} alt="emoji" />
-      <InfoText>{text}</InfoText>
+      <InfoText color={color} fontSize={fontSize}>
+        {text}
+      </InfoText>
     </InfoContainer>
   );
 };
