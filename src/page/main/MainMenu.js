@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 import CommonButton from "../../common/CommonButton";
+import CommonHr from "../../common/StyledHr";
 
 const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 37px;
+  margin-top: ${(props) => props.marginTop || "37px"};
   width: 100%;
   height: 400px; // 배너 높이 조정
   gap: 50px;
@@ -45,29 +46,32 @@ const Heading = styled.h1`
   margin-bottom: 10px;
 `;
 
-const StyledHr = styled.hr`
-  width: 100%;
-  height: 0.5px;
-  background-color: black
-  border: none;
-  margin: 10px 0;
-`;
-
-const MainMenu = ({ imgSrc, imgAlt, heading, subHeading, description }) => {
+const MainMenu = ({
+  imgSrc,
+  imgAlt,
+  heading,
+  subHeading,
+  description,
+  marginTop,
+  text = "자세히 보기",
+  color = "black",
+  $borderColor = "black",
+  fontSize = "12px",
+}) => {
   return (
-    <MainContainer>
+    <MainContainer marginTop={marginTop}>
       <MainImage src={imgSrc} alt={imgAlt} />
       <MainContent>
         <Heading>{heading}</Heading>
-        <StyledHr />
+        <CommonHr />
         <SubHeading>{subHeading}</SubHeading>
         <Description dangerouslySetInnerHTML={{ __html: description }} />
 
         <CommonButton
-          text="자세히보기"
-          color="black"
-          $borderColor="black"
-          fontSize="12px"
+          text={text}
+          color={color}
+          $borderColor={$borderColor}
+          fontSize={fontSize}
           $borderRadius="30px"
           $hoverColor="#D3D3D3"
           $hoverBk="transparent"

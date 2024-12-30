@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import CommonButton from "../../common/CommonButton";
+import CommonHr from "../../common/StyledHr";
 
 const MainContainer = styled.div`
   display: flex;
@@ -45,20 +46,12 @@ const Heading = styled.h1`
   margin-bottom: 10px;
 `;
 
-const StyledHr = styled.hr`
-  width: 100%;
-  height: 0.5px;
-  background-color: black
-  border: none;
-  margin: 10px 0;
-`;
-
 const MainMenu2 = ({ imgSrc, imgAlt, heading, subHeading, description }) => {
   return (
     <MainContainer>
       <MainContent>
         <Heading>{heading}</Heading>
-        <StyledHr />
+        <CommonHr />
         <SubHeading>{subHeading}</SubHeading>
         <Description dangerouslySetInnerHTML={{ __html: description }} />
 

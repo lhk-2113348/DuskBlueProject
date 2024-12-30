@@ -19,12 +19,12 @@ const Root = styled.div`
 const ContentBox = styled.div`
   min-height: calc(100vh - 110px);
 `;
+
 function Layout({ children }) {
   return (
     <Root>
       <MainHeader />
       <ContentBox>{children}</ContentBox>
-
       <Footer />
     </Root>
   );
