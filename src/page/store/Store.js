@@ -14,9 +14,15 @@ const Heading = styled.h1`
   color: ${(props) => props.theme.color.black};
   margin-bottom: 10px;
 `;
+const SubHeading = styled.h2`
+  font-size: ${(props) => props.theme.fontSize.lg};
+  font-weight: bold;
+  color: ${(props) => props.theme.color.black};
+  margin-bottom: 10px;
+`;
 
 function Store() {
-  const navermaps = useNavermaps();
+  const naverMaps = useNavermaps();
 
   return (
     <CommonRoot>
@@ -29,12 +35,13 @@ function Store() {
         }}
       >
         <NaverMap
-          defaultCenter={new navermaps.LatLng(37.528916, 126.899543)}
+          defaultCenter={new naverMaps.LatLng(37.528916, 126.899543)}
           defaultZoom={20}
         >
-          <Marker position={new navermaps.LatLng(37.528916, 126.899543)} />
+          <Marker position={new naverMaps.LatLng(37.528916, 126.899543)} />
         </NaverMap>
       </MapDiv>
+      <SubHeading>주소 : 서울시 영등포구 당산로 38길 10 2층</SubHeading>
     </CommonRoot>
   );
 }

@@ -46,7 +46,7 @@ const links = [
   },
   {
     emojiSrc: call,
-    text: "000-0000-0000",
+    text: "070-4243-3264",
   },
   {
     emojiSrc: Alarm,
@@ -109,7 +109,7 @@ const RentalServices = [
   },
   {
     emojiSrc: call,
-    text: "000-0000-0000",
+    text: "070-4243-3264",
   },
   {
     emojiSrc: Alarm,
@@ -160,8 +160,8 @@ function Reservation() {
           imgSrc={Rental}
           imgAlt="retal"
           heading="Rental Resevation"
-          description="“소중한 시간을 위한, 
-따뜻한 위로와 힐링의 공간을 준비해 드립니다”"
+          description="“소중한 시간을 위한,<br/> 
+따뜻한 힐링의 공간을 준비해 드립니다”"
           text="more"
           $borderColor="transparent"
           fontSize="20px"
