@@ -77,6 +77,10 @@ const MainMenu = ({
           $hoverBk="transparent"
           width="130px"
           height="35px"
+          style={{
+            position: "absolute" /* 절대 위치로 설정 */,
+            right: "0" /* 우측 정렬 */,
+          }}
         />
       </MainContent>
     </MainContainer>
