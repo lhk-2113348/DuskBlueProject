@@ -1,11 +1,11 @@
 import { Typography } from "@mui/material";
 import styled from "styled-components";
-import LemonCake from "../images/Menu/LemonCake.png";
-import EarlGrey from "../images/Menu/EarlGreyCake.png";
-import CarrotCake from "../images/Menu/CarrotCake.png";
-import YellowCake from "../images/Menu/YellowCheeseCake.png";
-import MalChaCake from "../images/Menu/MalchaCake.png";
-import StrawberryCake from "../images/Menu/StrawBerryCake.png";
+import LemonCake from "../images/Menu/dessert/LemonCake.png";
+import EarlGrey from "../images/Menu/dessert/EarlGreyCake.png";
+import CarrotCake from "../images/Menu/dessert/CarrotCake.png";
+import YellowCake from "../images/Menu/dessert/YellowCheeseCake.png";
+import MalChaCake from "../images/Menu/dessert/MalchaCake.png";
+import StrawberryCake from "../images/Menu/dessert/StrawBerryCake.png";
 
 const GridItem = styled.div`
   display: flex;
