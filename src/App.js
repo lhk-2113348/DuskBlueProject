@@ -14,10 +14,12 @@ const Root = styled.div`
   p {
     font-family: "Noto Sans KR";
   }
+  `;
+const LayoutWrapper =styled.div`
+  min-height: calc(50vh );
 `;
-
 const ContentBox = styled.div`
-  min-height: calc(100vh - 110px);
+  flex-grow: 1;
 `;
 
 function Layout({ children }) {
@@ -38,7 +40,7 @@ function App() {
           v7_relativeSplatPath: true,
         }}
       >
-        <Layout>
+        <LayoutWrapper>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/introduction" element={<DuskBlue />} />
@@ -48,7 +50,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/information" element={<Information />} />
           </Routes>
-        </Layout>
+        </LayoutWrapper>
       </Router>
     </ThemeProvider>
   );

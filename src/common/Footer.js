@@ -8,20 +8,15 @@ const FooterStyle = styled.footer`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  height: auto;
 `;
 
 const FooterTop = styled.div`
   margin-left: 30%;
-  position: relative;
 `;
 const FooterContent = styled.div`
   background: ${(props) => props.theme.color.orange};
-  max-width: 100%;
-  height: auto;
 `;
 const FooterMiddle = styled.div`
-  position: relative;
   margin-right: 15%;
   display: flex;
   justify-content: center;
@@ -36,9 +31,6 @@ const TextStyle = styled.p`
       props.theme.fontSize.sm}; /* 모바일 화면에서는 작은 폰트 크기 */
   }
   margin-left: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 
   }
 `;
