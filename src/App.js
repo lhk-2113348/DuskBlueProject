@@ -41,7 +41,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/duskblue-info" element={<DuskBlue />} />
+            <Route path="/introduction" element={<DuskBlue />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/menu/:category" element={<Menu />} />
             <Route path="/store" element={<Store />} />

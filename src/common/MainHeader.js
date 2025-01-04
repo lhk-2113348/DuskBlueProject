@@ -48,7 +48,7 @@ const MenuStyledLink = styled(Link)`
 `;
 export function MainHeader() {
   const menuList = [
-    { label: "DUSKBLUE", path: "/duskblue-info" },
+    { label: "DUSKBLUE", path: "/introduction" },
     { label: "MENU", path: "/menu" },
     { label: "STORE", path: "/store" },
     { label: "RESERVATION", path: "/reservation" },
