@@ -92,7 +92,7 @@ const Banner = () => {
       <BannerImage>
         {images[img]}
         {img === 0 && <MoreButton to="/duskblue-info">more</MoreButton>}
-        {img === 1 && <MoreButton to="/menu">more</MoreButton>}
+        {img === 1 && <MoreButton to="/menu/season">more</MoreButton>}
         {img === 2 && <MoreButton to="/reservation">more</MoreButton>}
       </BannerImage>
       <RightArrow onClick={imgChangeRight} display={display}>

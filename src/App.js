@@ -43,6 +43,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/duskblue-info" element={<DuskBlue />} />
             <Route path="/menu" element={<Menu />} />
+            <Route path="/menu/:category" element={<Menu />} />
             <Route path="/store" element={<Store />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/information" element={<Information />} />

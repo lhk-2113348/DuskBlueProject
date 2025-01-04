@@ -46,7 +46,7 @@ const Heading = styled.h1`
   margin-bottom: 10px;
 `;
 
-const MainMenu2 = ({ imgSrc, imgAlt, heading, subHeading, description }) => {
+const MainMenu2 = ({ imgSrc, imgAlt, heading, subHeading, description,onClick }) => {
   return (
     <MainContainer>
       <MainContent>
@@ -65,6 +65,7 @@ const MainMenu2 = ({ imgSrc, imgAlt, heading, subHeading, description }) => {
           hoverBk="transparent"
           width="130px"
           height="35px"
+          onClick={onClick}
         />
       </MainContent>
       <MainImage src={imgSrc} alt={imgAlt} />

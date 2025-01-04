@@ -1,10 +1,11 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { menuItems } from "../menu/MenuItems";
 
 import CommonRoot from "../../common/CommonRoot";
 import MenuGrid from "./MenuGrid";
 import MenuTab from "./MenuTab";
 import SubMenuTab from "./SubMenuTab";
+import { useParams } from "react-router-dom";
 const tabCheckboxItems = {
   0: [
     // Beverage
@@ -26,9 +27,19 @@ const tabCheckboxItems = {
   ],
 };
 function Menu() {
+  const { category } = useParams(); // category와 subCategory URL 파라미터 받기
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedSubMenu, setSelectedSubmenu] = useState("");
-
+  useEffect(() => {
+    // 카테고리 값에 맞는 탭을 선택
+    if (category === "beverage") {
+      setSelectedTab(0);
+    } else if (category === "dessert") {
+      setSelectedTab(1);
+    } else if (category === "season") {
+      setSelectedTab(2);
+    }
+  }, [category]);
   const handleTabChange = (newTab) => {
     setSelectedTab(newTab);
     setSelectedSubmenu("");
