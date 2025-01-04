@@ -148,7 +148,7 @@ function Reservation() {
           $marginTop="100px"
           imgSrc={CakeReservation}
           imgAlt="cake"
-          heading="Cake Resevation"
+          heading="Cake Reservation"
           description="“소중한 날, 달콤하게 빛나는 기억으로”"
           text="more"
           $borderColor="transparent"
@@ -158,8 +158,8 @@ function Reservation() {
         <MainMenu
           $marginTop="180px"
           imgSrc={Rental}
-          imgAlt="retal"
-          heading="Rental Resevation"
+          imgAlt="rental"
+          heading="Rental Reservation"
           description="“소중한 시간을 위한,<br/> 
 따뜻한 힐링의 공간을 준비해 드립니다”"
           text="more"
