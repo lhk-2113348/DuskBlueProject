@@ -25,7 +25,7 @@ export default function SubMenuTab({
           border: "2px solid black", // 전체 border 값 추가
           padding: "20px", // 내부 여백
           borderRadius: "20px", // 모서리 둥글게
-          width: "100%",
+          width: "113%",
         }}
       >
         <FormGroup

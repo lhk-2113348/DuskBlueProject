@@ -10,13 +10,13 @@ const GridItem = styled.div`
 `;
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  margin: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin: 40px;
 `;
 const Card = styled.div`
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.5s;
@@ -40,8 +40,8 @@ const CardFront = styled.div`
 
 const CardBack = styled.div`
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   backface-visibility: hidden;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -55,21 +55,27 @@ const CardBack = styled.div`
   border-radius: 10px;
 `;
 const Image = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
   max-width: 100%;
 `;
 
-const InfoSection = ({ imgSrc, name, description }) => {
+const InfoSection = ({ imgSrc, name, description, price, HotIce }) => {
   return (
     <GridItem>
       <Card>
         <CardFront>
           <Image src={imgSrc} alt={name} />
-          <Typography color="black" fontSize="25px" sx={{ marginTop: "10px" }}>
+          <Typography color="black" fontSize="25px" sx={{ marginTop: "5px" }}>
             {name}
+          </Typography>
+          <Typography variant="body2" fontSize="20px" sx={{ marginTop: "1px" }}>
+            {price}
+          </Typography>
+          <Typography variant="body2" fontSize="20px" sx={{ color: "#D95F03" }}>
+            {HotIce}
           </Typography>
         </CardFront>
         <CardBack>
@@ -98,6 +104,8 @@ const MenuGrid = ({ selectedSubMenu, items }) => {
           imgSrc={item.imgSrc}
           name={item.name}
           description={item.description}
+          price={item.price}
+          HotIce={item.HotIce}
         />
       ))}
     </GridContainer>
