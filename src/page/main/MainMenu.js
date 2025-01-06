@@ -29,21 +29,21 @@ const MainImage = styled.img`
     object-fit: contain;
   }
 `;
-const SubHeading = styled.h2`
+const SubHeading = styled.p`
   font-size: ${(props) => props.theme.fontSize.lg};
   color: ${(props) => props.theme.color.black};
-  margin-bottom: 20px;
+  margin-bottom: -10px;
+  margin-top: -5px;
 `;
 const Description = styled.p`
   font-size: ${(props) => props.theme.fontSize.md};
   color: #333;
-  margin-bottom: 20px;
 `;
 const Heading = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl};
   font-weight: bold;
   color: ${(props) => props.theme.color.black};
-  margin-bottom: 10px;
+  margin-bottom: -5px;
 `;
 
 const MainMenu = ({
@@ -56,7 +56,7 @@ const MainMenu = ({
   text = "자세히 보기",
   color = "black",
   $borderColor = "black",
-  fontSize = "12px",
+  fontSize,
   width = "130px",
   height = "35px",
   onClick,
@@ -69,7 +69,6 @@ const MainMenu = ({
         <CommonHr />
         <SubHeading>{subHeading}</SubHeading>
         <Description dangerouslySetInnerHTML={{ __html: description }} />
-
         <CommonButton
           text={text}
           color={color}

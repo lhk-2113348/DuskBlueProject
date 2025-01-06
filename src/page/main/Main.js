@@ -9,53 +9,52 @@ import MainMenu2 from "./MainMenu2";
 import { useNavigate } from "react-router-dom";
 
 function Main() {
-  const navigate=useNavigate();
-  const handleClick =(category,)=>{
+  const navigate = useNavigate();
+  const handleClick = (category) => {
     navigate(`/menu/${category}`);
-
-  }
+  };
   return (
     <CommonRoot>
       <Banner />
       <MainMenu
         imgSrc={Coffee}
         alt="coffee"
-        heading="Coffee"
-        subHeading="하루의 무게 속 진정성 있는 위로"
-        description="커피는 일상의 깊이를 더하는 고요한 순간 <br />
-                       매일의 피로를 덜어주는 진정성 있는 한잔"
-        onClick={() => handleClick('beverage')} // Coffee 선택 시 category와 subCategory를 지정
-
+        heading="커피"
+        subHeading="COFFEE"
+        description="하루의 무게 속 진정성 있는 위로"
+        onClick={() => handleClick("beverage")} // Coffee 선택 시 category와 subCategory를 지정
+        width="30%"
+        fontSize="18px"
       />
       <MainMenu2
         imgSrc={NonCoffee}
         alt="nonCoffee"
-        heading="Non-coffee"
-        subHeading="하루의 분주함 속 마음의 안식"
-        description="일상의 편암함과 여유를 선사하는 특별한 순간 <br/>
-매일의 작은 위로가 되는 그 한잔"
-onClick={() => handleClick('beverage')} // NonCoffee 선택 시 category와 subCategory를 지정
-
+        heading="논커피"
+        subHeading="Non-coffee"
+        description="하루의 분주함 속 마음의 안식"
+        onClick={() => handleClick("beverage")} // NonCoffee 선택 시 category와 subCategory를 지정
+        fontSize="18px"
+        width="30%"
       />
       <MainMenu
         imgSrc={Alcoholic}
         alt="alcoholic"
-        heading="Alcoholic drinks"
-        subHeading="한잔으로 찾는 마음의 고요함"
-        description="일상의 흐름 속 여유를 불어 넣는 예술적 순간 <br />
-                       매일의 고단한 시간에 스며드는 그 한잔"
-        onClick={() => handleClick('beverage')} // Alcoholic drinks 선택 시 category와 subCategory를 지정
-
+        heading="주류 "
+        subHeading="Alcoholic drinks"
+        description="한잔으로 찾는 마음의 고요함"
+        onClick={() => handleClick("beverage")} // Alcoholic drinks 선택 시 category와 subCategory를 지정
+        fontSize="18px"
+        width="30%"
       />
       <MainMenu2
         imgSrc={Dessert}
         alt="dessert"
-        heading="Dessert"
-        subHeading="달콤함으로 찾는 마음의 쉼터"
-        description="일상의 순간 여유와 따듯함을 선사하는 한입<br/>
-삶을 더 풍성하고 달콤하게 만드는 방식"
-       onClick={() => handleClick('dessert')} 
-
+        heading="디저트"
+        subHeading="Dessert"
+        description="달콤함으로 찾는 마음의 쉼터"
+        onClick={() => handleClick("dessert")}
+        fontSize="18px"
+        width="30%"
       />
     </CommonRoot>
   );

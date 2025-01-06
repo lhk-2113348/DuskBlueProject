@@ -36,7 +36,7 @@ const InfoInnerContainer = styled("div")`
 `;
 const styleProps = {
   color: "white",
-  fontSize: "16px",
+  fontSize: "20px",
   $marginTop: "0px",
 };
 const links = [

@@ -32,21 +32,30 @@ const MainImage = styled.img`
 const SubHeading = styled.h2`
   font-size: ${(props) => props.theme.fontSize.lg};
   color: ${(props) => props.theme.color.black};
-  margin-bottom: 20px;
+  margin-bottom: -10px;
+  margin-top: -5px;
 `;
 const Description = styled.p`
   font-size: ${(props) => props.theme.fontSize.md};
   color: #333;
-  margin-bottom: 20px;
 `;
 const Heading = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl};
   font-weight: bold;
   color: ${(props) => props.theme.color.black};
-  margin-bottom: 10px;
+  margin-bottom: -5px;
 `;
 
-const MainMenu2 = ({ imgSrc, imgAlt, heading, subHeading, description,onClick }) => {
+const MainMenu2 = ({
+  imgSrc,
+  imgAlt,
+  heading,
+  subHeading,
+  description,
+  onClick,
+  fontSize,
+  width,
+}) => {
   return (
     <MainContainer>
       <MainContent>
@@ -59,11 +68,11 @@ const MainMenu2 = ({ imgSrc, imgAlt, heading, subHeading, description,onClick })
           text="자세히보기"
           color="black"
           $borderColor="black"
-          fontSize="12px"
+          fontSize={fontSize}
           $borderRadius="30px"
           hoverColor="#D3D3D3"
           hoverBk="transparent"
-          width="130px"
+          width={width}
           height="35px"
           onClick={onClick}
         />
