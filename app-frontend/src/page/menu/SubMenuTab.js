@@ -8,26 +8,33 @@ export default function SubMenuTab({
   selectedTab,
   onSubMenuChange,
   checkboxItems,
+  width = "120%",
+  border = "2px solid black",
+  borderRadius = "20px",
+  color = "black",
+  selectedColor = "D95F03",
+  marginLeft = "0px",
 }) {
   const [selectedValue, setSelectedValue] = React.useState("전체");
-  const itemsToDisplay = checkboxItems[selectedTab] || [];
-
   const handleChange = (event) => {
     const newValue = event.target.value;
     const updatedValue = newValue === "전체" ? "" : newValue; // 전체 선택 시 빈 문자열로 설정
     setSelectedValue(updatedValue);
     onSubMenuChange(updatedValue); // 부모로 상태 전달
   };
-
+  const itemsToDisplay = Array.isArray(checkboxItems[selectedTab])
+    ? checkboxItems[selectedTab]
+    : [];
   return (
     <Box>
       <FormControl
         component="fieldset"
         sx={{
-          border: "2px solid black",
+          border: { border },
           padding: "20px",
-          borderRadius: "20px",
-          width: "120%",
+          borderRadius: { borderRadius },
+          width: { width },
+          marginLeft: { marginLeft },
         }}
       >
         <FormGroup
@@ -53,10 +60,10 @@ export default function SubMenuTab({
                     color:
                       selectedValue === items.value ||
                       (selectedValue === "" && items.value === "전체")
-                        ? "#D95F03"
+                        ? { selectedColor }
                         : "",
                     "&.Mui-checked": {
-                      color: "#D95F03", // 선택된 항목에 주황색을 적용
+                      color: { selectedColor }, // 선택된 항목에 주황색을 적용
                     },
                   }}
                 />
@@ -69,6 +76,7 @@ export default function SubMenuTab({
                   marginLeft: "20px",
                 },
                 marginRight: "100px",
+                color: { color },
               }}
             />
           ))}

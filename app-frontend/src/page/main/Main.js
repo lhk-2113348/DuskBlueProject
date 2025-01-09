@@ -13,6 +13,10 @@ function Main() {
   const handleClick = (category) => {
     navigate(`/menu/${category}`);
   };
+
+  const handleAdminClick = () => {
+    navigate("/admin"); // 관리자 페이지로 이동
+  };
   return (
     <CommonRoot>
       <Banner />
@@ -56,6 +60,10 @@ function Main() {
         fontSize="18px"
         width="30%"
       />
+      {/* 관리자 페이지로 이동하는 버튼 추가 */}
+      <div style={{ marginTop: "20px" }}>
+        <button onClick={handleAdminClick}>관리자 페이지로 이동</button>
+      </div>
     </CommonRoot>
   );
 }

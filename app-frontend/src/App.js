@@ -9,15 +9,16 @@ import { MainHeader } from "./common/MainHeader";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
 import Footer from "./common/Footer";
+import AdminMenuPage from "./page/admin/AdminMenuPage";
 const Root = styled.div`
   & *,
   p {
     font-family: "Noto Sans KR";
   }
-  `;
+`;
 
 const ContentBox = styled.div`
-min-height: calc(100vh );
+  min-height: calc(100vh);
 `;
 
 function Layout({ children }) {
@@ -47,6 +48,8 @@ function App() {
             <Route path="/store" element={<Store />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/information" element={<Information />} />
+
+            <Route path="/admin" element={<AdminMenuPage />} />
           </Routes>
         </Layout>
       </Router>

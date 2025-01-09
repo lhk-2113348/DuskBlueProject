@@ -4,7 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 export default function MenuTab({ selectedTab, setSelectedTab }) {
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setSelectedTab(newValue);
   };
   const tabStyle = {
@@ -34,7 +34,7 @@ export default function MenuTab({ selectedTab, setSelectedTab }) {
         }}
       >
         <Tab
-          label="Beverage"
+          label="Drinks"
           value={0}
           sx={{ marginRight: "15%", ...tabStyle }}
         />
