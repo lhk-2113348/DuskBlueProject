@@ -7,7 +7,7 @@ const ButtonStyle = styled(Button)`
     min-width: ${(props) => props.width || "64px"};
     height: ${(props) => props.height || "48px"};
     background-color: ${(props) =>
-      props.background ? props.background : props.theme.color.blue};
+      props.background ? props.background : props.theme.color.white};
     border: ${(props) =>
       props.$borderColor ? `1px solid ${props.$borderColor}` : "0px"};
     border-radius: ${(props) => props.borderRadius || "15px"};

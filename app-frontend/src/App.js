@@ -1,6 +1,12 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import MainPage from "./page/main/Main";
 import DuskBlue from "./page/duskblue/DuskBlue";
+import Login from "./page/Auth/Login";
 import Menu from "./page/menu/Menu";
 import Store from "./page/store/Store";
 import Reservation from "./page/reservation/Reservation";
@@ -23,7 +29,8 @@ const ContentBox = styled.div`
 `;
 
 function Layout({ children }) {
-  const hidHeaderFooter = window.location.pathname === "/";
+  const location = useLocation();
+  const hidHeaderFooter = location.pathname === "/";
   return (
     <Root>
       {!hidHeaderFooter && <MainHeader />}
@@ -44,6 +51,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<FirstPage />} />
+            <Route path="/Login" element={<Login />} />
             <Route path="/admin" element={<AdminMenuPage />} />
             <Route path="/main" element={<MainPage />} />
             <Route path="/introduction" element={<DuskBlue />} />

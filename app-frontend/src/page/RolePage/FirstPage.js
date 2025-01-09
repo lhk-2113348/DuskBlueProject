@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CafeImage from "../../images/Logo/background.png";
+import CommonButton from "../../common/CommonButton";
 const MainContainer = styled.div`
   height: 100vh;
   background-image: url(${CafeImage});
@@ -25,31 +26,43 @@ const ButtonContainer = styled.div`
   margin-top: 20px;
 `;
 
-const Button = styled.button`
-  width: 30vh;
-  height: 30vh;
-  font-size: 5vh;
-  background-color: ${(props) => props.theme.color.white};
-  color: ${(props) => props.theme.color.orange};
-  border: 1px solid ${(props) => props.theme.color.orange};
-  cursor: pointer;
-  border-radius: 50px;
-  &:hover {
-    background-color: ${(props) => props.theme.color.orange};
-    color: ${(props) => props.theme.color.white};
-  }
-`;
+const ButtonProp = {
+  width: "30vh",
+  height: "30vh",
+  fontSize: "5vh",
+  background: "white",
+  color: " #D95F03",
+  $borderColor: "#D95F03",
+  borderRadius: "50px",
+  $hoverBk: "#D95F03",
+  $hoverColor: "white",
+};
 const FirstPage = () => {
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleLoginClick = () => {
+    navigate("/Login"); // /Login 페이지로 이동
+  };
+
+  const handleMainClick = () => {
+    navigate("/main"); // /main 페이지로 이동
+  };
+  const openDialog = () => {
+    setIsOpen(true);
+  };
+  const closeDialog = () => {
+    setIsOpen(false);
+  };
   return (
     <MainContainer>
       <TitleContainer>DuskBlue</TitleContainer>
       <ButtonContainer>
-        <Link to="/admin">
-          <Button>사장님</Button>
-        </Link>
-        <Link to="/main">
-          <Button>손님</Button>
-        </Link>
+        <CommonButton
+          {...ButtonProp}
+          text="사장님"
+          onClick={handleLoginClick}
+        />
+        <CommonButton {...ButtonProp} text="손님" onClick={handleMainClick} />
       </ButtonContainer>
     </MainContainer>
   );
