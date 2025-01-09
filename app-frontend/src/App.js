@@ -5,6 +5,7 @@ import Menu from "./page/menu/Menu";
 import Store from "./page/store/Store";
 import Reservation from "./page/reservation/Reservation";
 import Information from "./page/information/Information";
+import FirstPage from "./page/RolePage/FirstPage";
 import { MainHeader } from "./common/MainHeader";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
@@ -22,11 +23,12 @@ const ContentBox = styled.div`
 `;
 
 function Layout({ children }) {
+  const hidHeaderFooter = window.location.pathname === "/";
   return (
     <Root>
-      <MainHeader />
+      {!hidHeaderFooter && <MainHeader />}
       <ContentBox>{children}</ContentBox>
-      <Footer />
+      {!hidHeaderFooter && <Footer />}
     </Root>
   );
 }
@@ -41,15 +43,15 @@ function App() {
       >
         <Layout>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<FirstPage />} />
+            <Route path="/admin" element={<AdminMenuPage />} />
+            <Route path="/main" element={<MainPage />} />
             <Route path="/introduction" element={<DuskBlue />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/menu/:category" element={<Menu />} />
             <Route path="/store" element={<Store />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/information" element={<Information />} />
-
-            <Route path="/admin" element={<AdminMenuPage />} />
           </Routes>
         </Layout>
       </Router>

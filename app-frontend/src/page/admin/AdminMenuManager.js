@@ -5,9 +5,9 @@ import CommonButton from "../../common/CommonButton";
 import AdminRegisterForm from "../admin/AdminRegisterForm";
 
 const ButtonContainer = styled.div`
-  display: flex; // 가로로 배치
-  justify-content: center; // 중앙 정렬
-  gap: 10px; // 버튼 간격
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-top: 10px;
 `;
 const ButtonProps = {
@@ -21,6 +21,7 @@ const ButtonProps = {
 };
 const TableContainer = styled.div`
   overflow-x: auto;
+  margin-top: -25%;
 `;
 
 const Table = styled.table`
