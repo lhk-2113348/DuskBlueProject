@@ -80,7 +80,7 @@ const PaginationButton = styled.button`
 `;
 const PageNumberButton = styled.button`
   ${PageButtonProp}
-  color: ${({ active }) => (active ? "#d95f03" : "black")};
+  color: ${({ $active }) => ($active ? "#d95f03" : "black")};
   &:hover {
     color: #d95f03;
   }
@@ -235,7 +235,7 @@ const AdminMenuManager = () => {
           {Array.from({ length: totalPages }, (_, index) => (
             <PageNumberButton
               key={index}
-              active={currentPage === index + 1}
+              $active={currentPage === index + 1}
               onClick={() => setCurrentPage(index + 1)}
             >
               {index + 1}
