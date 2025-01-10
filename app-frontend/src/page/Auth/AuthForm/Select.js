@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 const FormProps = {
   padding: "10px",
   fontsize: "20px",
@@ -15,16 +16,18 @@ const FormProps = {
 const FormSelect = styled.select`
   ${FormProps};
 `;
+
 const Label = styled.label`
   color: ${(props) => props.labelColor || "white"};
   display: block;
   margin-bottom: 5px;
 `;
-const Select = ({ label, name, options, labelColor, ...props }) => {
+
+const Select = ({ label, name, options, labelColor, register, rules = {} }) => {
   return (
     <>
-      <Label color={labelColor}>{label}</Label>
-      <FormSelect name={name} {...props}>
+      <Label labelColor={labelColor}>{label}</Label>
+      <FormSelect {...register(name, rules)} name={name}>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -34,4 +37,5 @@ const Select = ({ label, name, options, labelColor, ...props }) => {
     </>
   );
 };
+
 export default Select;

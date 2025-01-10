@@ -1,3 +1,5 @@
+import React from "react";
+import { useForm } from "react-hook-form";
 import MainContainer from "../../common/CommonBack";
 import CommonButton from "../../common/CommonButton";
 import Select from "./AuthForm/Select";
@@ -17,36 +19,52 @@ const selectedOptions = [
 ];
 
 const inputFields = [
-  {
-    label: "아이디",
-    name: "ID",
-  },
-  {
-    label: "비밀번호",
-    name: "pwd",
-  },
+  { label: "아이디", name: "ID" },
+  { label: "비밀번호", name: "pwd" },
 ];
 
 const Signup = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <MainContainer />
       <WholeContainer>
         <TitleContainer>회원 가입</TitleContainer>
         <Container>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             {inputFields.map(({ label, name }, index) => (
               <div key={index}>
-                <Input name={name} label={label} />
+                <Input
+                  name={name}
+                  label={label}
+                  register={register} // register 전달
+                  rules={{ required: `${label}을 입력해 주세요` }} // validation rules
+                />
               </div>
             ))}
             <Select
               label="질문 등록"
               name="question"
               options={selectedOptions}
+              labelColor="black"
+              register={register}
+              rules={{ required: `질문을 선택해 주세요` }} // validation rules
             />
-
-            <Input label="답변 등록" name="answer" />
+            <Input
+              label="답변 등록"
+              name="answer"
+              register={register}
+              rules={{ required: "답변을 입력해 주세요" }}
+            />
             <ButtonContainer>
               <CommonButton
                 width="150px"

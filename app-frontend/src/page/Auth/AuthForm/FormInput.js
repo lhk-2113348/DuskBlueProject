@@ -16,17 +16,18 @@ const FormProps = {
 const FormInput = styled.input`
   ${FormProps};
 `;
+
 const Label = styled.label`
   color: ${(props) => props.color || "white"};
   display: block;
   margin-bottom: 5px;
 `;
 
-const Input = ({ label, type, labelColor, ...props }) => {
+const Input = ({ label, type, labelColor, register, name, rules = {} }) => {
   return (
     <>
       <Label color={labelColor}>{label}</Label>
-      <FormInput type={type} {...props} />
+      <FormInput {...register(name, rules)} type={type} name={name} />
     </>
   );
 };
