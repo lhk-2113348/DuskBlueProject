@@ -30,7 +30,10 @@ const ContentBox = styled.div`
 
 function Layout({ children }) {
   const location = useLocation();
-  const hidHeaderFooter = location.pathname === "/";
+  const path = location.pathname;
+
+  const hidHeaderFooter = path === "/" || path === "/Login";
+
   return (
     <Root>
       {!hidHeaderFooter && <MainHeader />}

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CafeImage from "../../images/Logo/background.png";
 import CommonButton from "../../common/CommonButton";
@@ -13,6 +12,13 @@ const MainContainer = styled.div`
   align-items: center;
   flex-direction: column;
   color: white;
+`;
+const WholeContainer = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 20px;
 `;
 const TitleContainer = styled.div`
   font-size: 8vw;
@@ -39,31 +45,27 @@ const ButtonProp = {
 };
 const FirstPage = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   const handleLoginClick = () => {
-    navigate("/Login"); // /Login 페이지로 이동
+    navigate("/Login");
   };
 
   const handleMainClick = () => {
-    navigate("/main"); // /main 페이지로 이동
+    navigate("/main");
   };
-  const openDialog = () => {
-    setIsOpen(true);
-  };
-  const closeDialog = () => {
-    setIsOpen(false);
-  };
+
   return (
     <MainContainer>
-      <TitleContainer>DuskBlue</TitleContainer>
-      <ButtonContainer>
-        <CommonButton
-          {...ButtonProp}
-          text="사장님"
-          onClick={handleLoginClick}
-        />
-        <CommonButton {...ButtonProp} text="손님" onClick={handleMainClick} />
-      </ButtonContainer>
+      <WholeContainer>
+        <TitleContainer>DuskBlue</TitleContainer>
+        <ButtonContainer>
+          <CommonButton
+            {...ButtonProp}
+            text="사장님"
+            onClick={handleLoginClick}
+          />
+          <CommonButton {...ButtonProp} text="손님" onClick={handleMainClick} />
+        </ButtonContainer>
+      </WholeContainer>
     </MainContainer>
   );
 };
