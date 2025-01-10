@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/navermaps": "^3.7.8"
-  }
-}
