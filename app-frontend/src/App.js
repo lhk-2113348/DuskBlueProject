@@ -7,6 +7,7 @@ import {
 import MainPage from "./page/main/Main";
 import DuskBlue from "./page/duskblue/DuskBlue";
 import Login from "./page/Auth/Login";
+import SignUp from "./page/Auth/SignUP";
 import Menu from "./page/menu/Menu";
 import Store from "./page/store/Store";
 import Reservation from "./page/reservation/Reservation";
@@ -17,6 +18,9 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
 import Footer from "./common/Footer";
 import AdminMenuPage from "./page/admin/AdminMenuPage";
+import FindID from "./page/Auth/FindID";
+import FindPW from "./page/Auth/FindPW";
+
 const Root = styled.div`
   & *,
   p {
@@ -32,7 +36,12 @@ function Layout({ children }) {
   const location = useLocation();
   const path = location.pathname;
 
-  const hidHeaderFooter = path === "/" || path === "/Login";
+  const hidHeaderFooter =
+    path === "/" ||
+    path === "/Login" ||
+    path === "/signup" ||
+    path === "/find-id" ||
+    path === "/find-pw";
 
   return (
     <Root>
@@ -56,6 +65,10 @@ function App() {
             <Route path="/" element={<FirstPage />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/admin" element={<AdminMenuPage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/find-id" element={<FindID />} />
+            <Route path="/find-pw" element={<FindPW />} />
+
             <Route path="/main" element={<MainPage />} />
             <Route path="/introduction" element={<DuskBlue />} />
             <Route path="/menu" element={<Menu />} />

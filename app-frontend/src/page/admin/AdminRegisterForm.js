@@ -47,6 +47,11 @@ const SoldOutContainer = styled.div`
   display: flex;
   justify-content: flex-start;
 `;
+const RadioContainer = styled.div`
+  display: flex;
+  gap: 10%;
+  margin-left: 75px;
+`;
 const FormCheckbox = styled.input`
   width: 10%;
 `;
@@ -60,11 +65,7 @@ const FormTextArea = styled.textarea`
 const FormSelect = styled.select`
   ${FormProps};
 `;
-const RadioContainer = styled.div`
-  display: flex;
-  gap: 10%;
-  margin-left: 75px;
-`;
+
 const AdminRegisterForm = ({
   showForm,
   setShowForm,

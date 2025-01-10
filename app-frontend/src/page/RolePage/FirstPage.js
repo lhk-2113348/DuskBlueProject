@@ -1,18 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import CafeImage from "../../images/Logo/background.png";
 import CommonButton from "../../common/CommonButton";
-const MainContainer = styled.div`
-  height: 100vh;
-  background-image: url(${CafeImage});
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white;
-`;
+import MainContainer from "../../common/CommonBack";
+
 const WholeContainer = styled.div`
   position: fixed;
   top: 50%;
@@ -54,7 +44,9 @@ const FirstPage = () => {
   };
 
   return (
-    <MainContainer>
+    <>
+      <MainContainer />
+
       <WholeContainer>
         <TitleContainer>DuskBlue</TitleContainer>
         <ButtonContainer>
@@ -66,7 +58,7 @@ const FirstPage = () => {
           <CommonButton {...ButtonProp} text="손님" onClick={handleMainClick} />
         </ButtonContainer>
       </WholeContainer>
-    </MainContainer>
+    </>
   );
 };
 export default FirstPage;

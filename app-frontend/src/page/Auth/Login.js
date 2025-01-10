@@ -1,50 +1,51 @@
 import styled from "styled-components";
-import CommonRoot from "../../common/CommonRoot";
-import CafeImage from "../../images/Logo/background.png";
+import MainContainer from "../../common/CommonBack";
+import Input from "./AuthForm/FormInput";
+import { WholeContainer, TitleContainer } from "./AuthForm/WholeForm";
 
-const MainContainer = styled.div`
-  height: 100vh;
-  background-image: url(${CafeImage});
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white;
-`;
-const WholeContainer = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  gap: 20px;
-`;
 const LoginContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: column;
-  width: 30vh;
-  height: 30vh;
-  border: 1px solid white;
-`;
-const TitleContainer = styled.div`
-  font-size: 8vw;
-  text-align: center;
-  font-weight: bold;
-  color: ${(props) => props.theme.color.white};
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 300px;
+  padding: 20px;
 `;
 
+const LinkContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 5px;
+  font-size: 10px;
+  color: ${(props) => props.theme.color.white};
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
 const Login = () => {
   return (
-    <MainContainer>
-      <CommonRoot>
-        <WholeContainer>
-          <TitleContainer>로그인</TitleContainer>
-          <LoginContainer></LoginContainer>
-        </WholeContainer>
-      </CommonRoot>
-    </MainContainer>
+    <>
+      <MainContainer />
+      <WholeContainer>
+        <TitleContainer>로그인</TitleContainer>
+        <LoginContainer>
+          <Input label="아이디" type="text" />
+          <Input label="비밀번호" type="password" />
+          <LinkContainer>
+            <a href="/find-id">아이디 찾기</a>
+            <>|</>
+            <a href="/find-pw">비밀번호 찾기</a>
+            <>|</>
+            <a href="/signup">회원가입</a>
+          </LinkContainer>
+        </LoginContainer>
+      </WholeContainer>
+    </>
   );
 };
 export default Login;
