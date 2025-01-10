@@ -1,22 +1,13 @@
-import styled from "styled-components";
 import MainContainer from "../../common/CommonBack";
 import CommonButton from "../../common/CommonButton";
 import Select from "./AuthForm/Select";
 import Input from "./AuthForm/FormInput";
-import { WholeContainer, TitleContainer } from "./AuthForm/WholeForm";
-
-const SignUpContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  min-height: 300px;
-  padding: 20px;
-`;
-const ButtonContainer = styled.div`
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-`;
+import {
+  WholeContainer,
+  TitleContainer,
+  ButtonContainer,
+  Container,
+} from "./AuthForm/WholeForm";
 
 const selectedOptions = [
   { value: "", label: "질문을 선택해 주세요" },
@@ -42,7 +33,7 @@ const Signup = () => {
       <MainContainer />
       <WholeContainer>
         <TitleContainer>회원 가입</TitleContainer>
-        <SignUpContainer>
+        <Container>
           <form>
             {inputFields.map(({ label, name }, index) => (
               <div key={index}>
@@ -69,7 +60,7 @@ const Signup = () => {
               />
             </ButtonContainer>
           </form>
-        </SignUpContainer>
+        </Container>
       </WholeContainer>
     </>
   );

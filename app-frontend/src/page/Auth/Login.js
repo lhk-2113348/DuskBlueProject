@@ -1,15 +1,11 @@
 import styled from "styled-components";
 import MainContainer from "../../common/CommonBack";
 import Input from "./AuthForm/FormInput";
-import { WholeContainer, TitleContainer } from "./AuthForm/WholeForm";
-
-const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  min-height: 300px;
-  padding: 20px;
-`;
+import {
+  WholeContainer,
+  TitleContainer,
+  Container,
+} from "./AuthForm/WholeForm";
 
 const LinkContainer = styled.div`
   display: flex;
@@ -33,7 +29,7 @@ const Login = () => {
       <MainContainer />
       <WholeContainer>
         <TitleContainer>로그인</TitleContainer>
-        <LoginContainer>
+        <Container>
           <Input label="아이디" type="text" />
           <Input label="비밀번호" type="password" />
           <LinkContainer>
@@ -43,7 +39,7 @@ const Login = () => {
             <>|</>
             <a href="/signup">회원가입</a>
           </LinkContainer>
-        </LoginContainer>
+        </Container>
       </WholeContainer>
     </>
   );

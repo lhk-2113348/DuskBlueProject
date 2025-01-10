@@ -1,8 +1,11 @@
 import Select from "./AuthForm/Select";
 import MainContainer from "../../common/CommonBack";
 import Input from "./AuthForm/FormInput";
-import { WholeContainer, TitleContainer } from "./AuthForm/WholeForm";
-import styled from "styled-components";
+import {
+  WholeContainer,
+  TitleContainer,
+  ButtonContainer,
+} from "./AuthForm/WholeForm";
 import CommonButton from "../../common/CommonButton";
 const selectedOptions = [
   { value: "", label: "질문을 선택해 주세요" },
@@ -10,11 +13,6 @@ const selectedOptions = [
   { value: 1, label: "더스크블루 강아지의 이름은?" },
   { value: 2, label: "더스크블루 번호는?" },
 ];
-const ButtonContainer = styled.div`
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-`;
 
 const FindID = () => {
   return (
