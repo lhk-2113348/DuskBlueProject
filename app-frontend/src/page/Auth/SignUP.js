@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import MainContainer from "../../common/CommonBack";
 import CommonButton from "../../common/CommonButton";
 import Select from "./AuthForm/Select";
@@ -9,31 +10,29 @@ import {
   TitleContainer,
   ButtonContainer,
   Container,
+  ErrorMessage,
+  selectedOptions,
+  ButtonProps,
 } from "./AuthForm/WholeForm";
-
-const selectedOptions = [
-  { value: "", label: "질문을 선택해 주세요" },
-  { value: 0, label: "당신의 이름은?" },
-  { value: 1, label: "더스크블루 강아지의 이름은?" },
-  { value: 2, label: "더스크블루 번호는?" },
-];
-
 const inputFields = [
   { label: "아이디", name: "ID" },
   { label: "비밀번호", name: "pwd" },
 ];
-
 const Signup = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
     console.log(data);
   };
+  const navigate = useNavigate();
 
+  const handleCancel = () => {
+    navigate("/Login"); // 로그인 페이지로 이동
+  };
   return (
     <>
       <MainContainer />
@@ -49,6 +48,9 @@ const Signup = () => {
                   register={register} // register 전달
                   rules={{ required: `${label}을 입력해 주세요` }} // validation rules
                 />
+                {errors[name] && (
+                  <ErrorMessage>{errors[name]?.message}</ErrorMessage>
+                )}
               </div>
             ))}
             <Select
@@ -59,22 +61,24 @@ const Signup = () => {
               register={register}
               rules={{ required: `질문을 선택해 주세요` }} // validation rules
             />
+            <ErrorMessage>{errors.question?.message}</ErrorMessage>
+
             <Input
               label="답변 등록"
               name="answer"
               register={register}
               rules={{ required: "답변을 입력해 주세요" }}
             />
+            {errors.answer && (
+              <ErrorMessage>{errors.answer?.message}</ErrorMessage>
+            )}
             <ButtonContainer>
+              <CommonButton width="110px" text="회원가입" {...ButtonProps} />
               <CommonButton
-                width="150px"
-                height="40px"
-                text="회원가입"
-                color="black"
-                borderRadius="4px"
-                type="submit"
-                $hoverBk="#D95F03"
-                $hoverColor="white"
+                width="50px"
+                text="취소"
+                {...ButtonProps}
+                onClick={handleCancel}
               />
             </ButtonContainer>
           </form>

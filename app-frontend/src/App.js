@@ -20,6 +20,7 @@ import Footer from "./common/Footer";
 import AdminMenuPage from "./page/admin/AdminMenuPage";
 import FindID from "./page/Auth/FindID";
 import FindPW from "./page/Auth/FindPW";
+import React, { useEffect } from "react";
 
 const Root = styled.div`
   & *,
@@ -34,20 +35,25 @@ const ContentBox = styled.div`
 
 function Layout({ children }) {
   const location = useLocation();
-  const path = location.pathname;
-
-  const hidHeaderFooter =
-    path === "/" ||
-    path === "/Login" ||
-    path === "/signup" ||
-    path === "/find-id" ||
-    path === "/find-pw";
+  const hideHeaderFooterPaths = [
+    "/",
+    "/Login",
+    "/signup",
+    "/find-id",
+    "/find-pw",
+  ];
+  const shouldHideHeaderFooter = hideHeaderFooterPaths.includes(
+    location.pathname
+  );
+  useEffect(() => {
+    console.log("Current Path: ", location.pathname); // 로그로 경로 변경 추적
+  }, [location.pathname]);
 
   return (
     <Root>
-      {!hidHeaderFooter && <MainHeader />}
+      {!shouldHideHeaderFooter && <MainHeader />}
       <ContentBox>{children}</ContentBox>
-      {!hidHeaderFooter && <Footer />}
+      {!shouldHideHeaderFooter && <Footer />}
     </Root>
   );
 }
