@@ -45,6 +45,7 @@ function Menu() {
       setSelectedTab(2);
     }
   }, [category]);
+
   const handleTabChange = (newTab) => {
     setSelectedTab(newTab);
     setSelectedSubmenu("");

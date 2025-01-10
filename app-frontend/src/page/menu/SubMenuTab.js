@@ -22,9 +22,8 @@ export default function SubMenuTab({
     setSelectedValue(updatedValue);
     onSubMenuChange(updatedValue); // 부모로 상태 전달
   };
-  const itemsToDisplay = Array.isArray(checkboxItems[selectedTab])
-    ? checkboxItems[selectedTab]
-    : [];
+  const itemsToDisplay = checkboxItems[selectedTab] || [];
+
   return (
     <Box>
       <FormControl

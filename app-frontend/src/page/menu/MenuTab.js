@@ -4,17 +4,17 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 export default function MenuTab({ selectedTab, setSelectedTab }) {
-  const handleChange = (newValue) => {
+  const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
   const tabStyle = {
     fontSize: "50px",
-    color: "#000000", // 기본 글자색
+    color: "#000000",
     "&:hover": {
-      color: "#D95F03", // hover 시 배경색
+      color: "#D95F03",
     },
     "&.Mui-selected": {
-      color: "#D95F03", // 선택된 탭 색상
+      color: "#D95F03",
     },
   };
   return (

@@ -68,7 +68,6 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/find-id" element={<FindID />} />
             <Route path="/find-pw" element={<FindPW />} />
-
             <Route path="/main" element={<MainPage />} />
             <Route path="/introduction" element={<DuskBlue />} />
             <Route path="/menu" element={<Menu />} />
