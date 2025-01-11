@@ -37,24 +37,25 @@ export default function CustomizedDialogs({
   backgroundColor,
   color,
   border,
+  fontSize,
 }) {
   return (
     <React.Fragment>
       <BootstrapDialog
         onClose={onClose}
-        aria-labelledby="customized-dialog-title"
         open={open}
         width={width}
         backgroundColor={backgroundColor}
         color={color}
         border={border}
+        fontSize={fontSize}
       >
         <DialogTitle
           sx={{
             m: 0,
             p: 8,
             textAlign: "center",
-            fontSize: "36px",
+            fontSize: fontSize || "36px",
             fontWeight: "bold",
           }}
           id="customized-dialog-title"
@@ -73,7 +74,7 @@ export default function CustomizedDialogs({
         >
           <CloseIcon />
         </IconButton>
-        <DialogContent dividers>{children}</DialogContent>
+        <DialogContent>{children}</DialogContent>
       </BootstrapDialog>
     </React.Fragment>
   );

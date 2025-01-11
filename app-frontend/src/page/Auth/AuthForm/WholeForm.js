@@ -49,3 +49,13 @@ export const ButtonProps = {
   $hoverBk: "#D95F03",
   $hoverColor: "white",
 };
+
+export const regex = {
+  id: /^[a-zA-Z0-9]{6,20}$/,
+  // 아이디: 영문자와 숫자만, 길이 6자~20자
+  password:
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/,
+  // 비밀번호: 최소 8자, 대/소문자, 숫자, 특수문자 포함
+  email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+  // 이메일: 일반적인 이메일 형식
+};

@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import MainContainer from "../../common/CommonBack";
+import Dialog from "../../common/Dialog";
 import Input from "./AuthForm/FormInput";
+import React, { useState } from "react";
+import { regex } from "./AuthForm/WholeForm";
+
 import {
   WholeContainer,
   TitleContainer,
   Container,
   ButtonContainer,
-  ErrorMessage,
 } from "./AuthForm/WholeForm";
 import { useForm } from "react-hook-form";
 import CommonButton from "../../common/CommonButton";
@@ -36,15 +39,38 @@ const ButtonProps = {
   $hoverBk: "#D95F03",
   $hoverColor: "white",
 };
+const inputFields = [
+  {
+    label: "아이디",
+    name: "ID",
+    type: "text",
+    pattern: regex.id,
+    errorMessage: "아이디는 6~20자의 영문자 또는 숫자여야 합니다.",
+  },
+  {
+    label: "비밀번호",
+    name: "pwd",
+    type: "password",
+    pattern: regex.password,
+    errorMessage:
+      "비밀번호는 최소 8자 이상, 대/소문자, 숫자 및 특수문자를 포함해야 합니다.",
+  },
+];
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
-
+  const [isOpen, setIsOpen] = useState(false);
   const onSubmit = (data) => {
     console.log(data);
+    if (isValid) {
+      setIsOpen(true);
+    }
+  };
+  const handleDialogClose = () => {
+    setIsOpen(false);
   };
   const navigate = useNavigate();
   return (
@@ -54,25 +80,26 @@ const Login = () => {
         <TitleContainer>로그인</TitleContainer>
         <Container>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-              name="ID"
-              label="아이디"
-              type="text"
-              labelColor="white"
-              register={register}
-              rules={{ required: `아이디를를 입력해 주세요` }}
-            />
-            {errors.ID && <ErrorMessage>{errors.ID?.message}</ErrorMessage>}
-            <Input
-              name="PW"
-              label="비밀번호"
-              type="password"
-              labelColor="white"
-              register={register}
-              rules={{ required: `비밀번호를 입력해 주세요` }}
-            />
-            {errors.PW && <ErrorMessage>{errors.PW?.message}</ErrorMessage>}
-
+            {inputFields.map(
+              ({ label, name, type, pattern, errorMessage }, index) => (
+                <div key={index}>
+                  <Input
+                    name={name}
+                    label={label}
+                    type={type}
+                    register={register} // register 전달
+                    rules={{
+                      required: `${label}을 입력해 주세요`,
+                      pattern: {
+                        value: pattern,
+                        message: errorMessage,
+                      },
+                    }} // validation rules
+                    errors={errors}
+                  />
+                </div>
+              )
+            )}
             <LinkContainer>
               <a href="/find-id">아이디 찾기</a>
               <>|</>
@@ -92,6 +119,21 @@ const Login = () => {
           </form>
         </Container>
       </WholeContainer>
+      <Dialog
+        open={isOpen}
+        onClose={handleDialogClose}
+        title="환영합니다"
+        width="50%"
+        backgroundColor="black"
+      >
+        <ButtonContainer>
+          <CommonButton
+            text="확인"
+            onClick={() => navigate("/admin")}
+            {...ButtonProps}
+          />
+        </ButtonContainer>
+      </Dialog>
     </>
   );
 };

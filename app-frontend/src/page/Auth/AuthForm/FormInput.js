@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ErrorMessage } from "./WholeForm";
 
 const FormProps = {
   padding: "10px",
@@ -23,11 +24,20 @@ const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-const Input = ({ label, type, labelColor, register, name, rules = {} }) => {
+const Input = ({
+  label,
+  type,
+  $labelColor = "white",
+  register,
+  name,
+  rules = {},
+  errors,
+}) => {
   return (
     <>
-      <Label color={labelColor}>{label}</Label>
+      <Label color={$labelColor}>{label}</Label>
       <FormInput {...register(name, rules)} type={type} name={name} />
+      {errors[name] && <ErrorMessage>{errors[name]?.message}</ErrorMessage>}
     </>
   );
 };
