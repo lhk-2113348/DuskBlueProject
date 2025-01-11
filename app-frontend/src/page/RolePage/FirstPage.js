@@ -11,7 +11,7 @@ const WholeContainer = styled.div`
   gap: 20px;
 `;
 const TitleContainer = styled.div`
-  font-size: 8vw;
+  font-size: 50px;
   text-align: center;
   font-weight: bold;
   color: ${(props) => props.theme.color.white};
@@ -23,9 +23,9 @@ const ButtonContainer = styled.div`
 `;
 
 const ButtonProp = {
-  width: "30vh",
-  height: "30vh",
-  fontSize: "5vh",
+  width: "200px",
+  height: "200px",
+  fontSize: "40px",
   background: "white",
   color: " #D95F03",
   $borderColor: "#D95F03",
