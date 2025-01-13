@@ -1,8 +1,9 @@
-package com.dusk.demo.repository;
+package com.dusk.demo.dto;
 
-import com.dusk.demo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.dusk.demo.entity.User;
+
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username); 
+    boolean existsByUsername(String username);
 }

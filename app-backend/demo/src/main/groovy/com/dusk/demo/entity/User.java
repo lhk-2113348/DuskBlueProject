@@ -1,38 +1,45 @@
 package com.dusk.demo.entity;
 
-import java.util.Set;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
-@Entity
 @Getter
 @Setter
+@Entity
+@Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  // 사용자 ID
 
-    private String username;  // 사용자 이름
+  @Column(nullable = false, unique = true)
+    String username;
 
-    private String password;  // 사용자 비밀번호
+    @Column(nullable = false)
+    String password;
+    
+    
+    @Column(nullable = false)
+    String email;
 
-    @OneToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="role_id")
+    @Column(nullable=false)
+    String question;
+
+     @Column(nullable=false)
+    String answer;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
-
-    @OneToMany(mappedBy="user")
-    private Set<Menu> menus;
 
    
     
