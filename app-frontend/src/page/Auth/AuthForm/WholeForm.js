@@ -25,7 +25,7 @@ export const Container = styled.div`
   flex-direction: column;
   min-width: 300px;
   min-height: 300px;
-  padding: 20px;
+  padding 20px;
 `;
 export const ErrorMessage = styled.p`
   color: red;
