@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: duskblue
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: ${ORACLE_DB_URL}
+    username: ${ORACLE_DB_USERNAME}
+    password: ${ORACLE_DB_PASSWORD}
+  thymeleaf:
+    cache: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    database: oracle
+    # database-platform: org.hibernate.dialect.Oracle12Dialect
+    database-platform: org.hibernate.dialect.OracleDialect
+
+logging:
+  level:
+    org:
+      hibernate: info
