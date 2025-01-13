@@ -53,9 +53,10 @@ const inputFields = [
     type: "password",
     pattern: regex.password,
     errorMessage:
-      "비밀번호는 최소 8자 이상, 대/소문자, 숫자 및 특수문자를 포함해야 합니다.",
+      "비밀번호는 최소 8자 이상,<br/> 대/소문자, 숫자 및 특수문자를 포함해야 합니다.",
   },
 ];
+
 const Login = () => {
   const {
     register,
@@ -96,6 +97,7 @@ const Login = () => {
                       },
                     }} // validation rules
                     errors={errors}
+                    errorMessage={errorMessage}
                   />
                 </div>
               )
@@ -123,7 +125,7 @@ const Login = () => {
         open={isOpen}
         onClose={handleDialogClose}
         title="환영합니다"
-        width="50%"
+        width="30%"
         backgroundColor="black"
       >
         <ButtonContainer>

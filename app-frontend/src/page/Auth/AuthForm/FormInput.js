@@ -23,7 +23,9 @@ const Label = styled.label`
   display: block;
   margin-bottom: 5px;
 `;
-
+const ErrorMessageComponent = ({ message }) => {
+  return <ErrorMessage dangerouslySetInnerHTML={{ __html: message }} />;
+};
 const Input = ({
   label,
   type,
@@ -32,12 +34,13 @@ const Input = ({
   name,
   rules = {},
   errors,
+  errorMessage,
 }) => {
   return (
     <>
       <Label color={$labelColor}>{label}</Label>
       <FormInput {...register(name, rules)} type={type} name={name} />
-      {errors[name] && <ErrorMessage>{errors[name]?.message}</ErrorMessage>}
+      {errors[name] && <ErrorMessageComponent message={errorMessage} />}
     </>
   );
 };
