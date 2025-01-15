@@ -14,7 +14,7 @@ import {
 import { useForm } from "react-hook-form";
 import CommonButton from "../../common/CommonButton";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const LinkContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -64,10 +64,21 @@ const Login = () => {
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
   const [isOpen, setIsOpen] = useState(false);
-  const onSubmit = (data) => {
+
+  const onSubmit = async (data) => {
     console.log(data);
     if (isValid) {
-      setIsOpen(true);
+      try {
+        const response = await axios.post("http://localhost:8065/login", data);
+        if (response.status === 200) {
+          setIsOpen(true);
+        } else {
+          alert("로그인 실패");
+        }
+      } catch (error) {
+        console.log("로그인 요청 오류:", error);
+        alert("로그인 요청에 실패");
+      }
     }
   };
   const handleDialogClose = () => {

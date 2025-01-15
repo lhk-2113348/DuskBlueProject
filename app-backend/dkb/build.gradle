@@ -27,22 +27,26 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-    // JUnit 플랫폼에서 테스트 실행자
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
-    // runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    // 입력값 유효성 검증
+    compileOnly 'org.projectlombok:lombok' 
+    annotationProcessor 'org.projectlombok:lombok' 
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security:spring-security-core'
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1' 
     implementation 'io.github.cdimascio:dotenv-java:2.2.0'
-
+    
+    // jjwt 의존성 추가
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5' // Implementation
+    runtimeOnly 'io.jsonwebtoken:jjwt-orgjson:0.11.5'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()
