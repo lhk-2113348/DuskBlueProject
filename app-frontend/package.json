@@ -8,7 +8,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
-  "homepage": "https://duskbluehk.netlify.app/",
   "author": "",
   "license": "ISC",
   "dependencies": {
