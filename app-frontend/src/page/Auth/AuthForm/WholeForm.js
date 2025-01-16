@@ -6,7 +6,6 @@ export const WholeContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   gap: 20px;
-  border: 1px solid red;
 `;
 
 export const TitleContainer = styled.div`
