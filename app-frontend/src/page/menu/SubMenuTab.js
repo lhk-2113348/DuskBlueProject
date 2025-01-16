@@ -9,7 +9,7 @@ export default function SubMenuTab({
   onSubMenuChange,
   checkboxItems,
   width = "120%",
-  border = "2px solid black",
+  border = "transparent",
   borderRadius = "20px",
   color = "black",
   selectedColor = "D95F03",

@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import com.dusk.dkb.dto.UserDTO;
 import com.dusk.dkb.dto.UserRepository;
 import com.dusk.dkb.entity.UserEntity;
-import com.dusk.dkb.util.JwtTokenUtil;
+import com.dusk.dkb.jwt.TokenProvider;
 
 @Service
 public class AdminServiceImpl implements AdminService {
 
      @Autowired
-    private JwtTokenUtil jwtTokenUtil; 
+    private TokenProvider jwtTokenUtil; 
     @Autowired
     private UserRepository userRepository;
 

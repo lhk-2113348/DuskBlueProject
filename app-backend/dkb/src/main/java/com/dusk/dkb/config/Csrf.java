@@ -1,4 +1,4 @@
-package com.dusk.dkb.security;
+package com.dusk.dkb.config;
 
 import java.util.UUID;
 

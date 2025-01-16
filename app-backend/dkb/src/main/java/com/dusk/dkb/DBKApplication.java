@@ -5,13 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import com.dusk.dkb.security.JwtConfig;
+import com.dusk.dkb.jwt.JwtSecurityConfig;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
 @EnableJpaAuditing
 @SpringBootApplication
-@EnableConfigurationProperties(JwtConfig.class)
+@EnableConfigurationProperties(JwtSecurityConfig.class)
 
 public class DBKApplication {
 

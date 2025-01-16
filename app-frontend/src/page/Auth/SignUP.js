@@ -49,32 +49,10 @@ const Signup = () => {
   } = useForm({ mode: "onChange" });
   const [isOpen, setIsOpen] = useState(false);
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
+    console.log(data);
     if (isValid) {
-      try {
-        const response = await axios.post("/auth/signup", {
-          id: data.ID,
-          username: data.USERNAME,
-          password: data.PASSWORD,
-          email: data.EMAIL,
-          question: data.QUESTION,
-          answer: data.ANSWER,
-          role: "USER",
-        });
-        console.log("회원가입 성공:", response.data);
-        setIsOpen(true);
-      } catch (error) {
-        console.error("회원가입 실패:", error);
-        if (error.response) {
-          console.log("서버 응답:", error.response.data);
-          console.log("응답 상태 코드:", error.response.status);
-        } else if (error.request) {
-          console.log("요청 전송됨, 응답이 없습니다.", error.request);
-        } else {
-          console.log("요청 설정 중 오류 발생:", error.message);
-        }
-        alert("회원가입 실패");
-      }
+      setIsOpen(true);
     }
   };
   const handleDialogClose = () => {
