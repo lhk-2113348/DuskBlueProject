@@ -8,6 +8,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
+  "homepage": "https://effervescent-pie-7c10f2.netlify.app/",
   "author": "",
   "license": "ISC",
   "dependencies": {
