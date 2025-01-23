@@ -5,6 +5,13 @@ import MenuGrid from "./MenuGrid";
 import MenuTab from "./MenuTab";
 import SubMenuTab from "./SubMenuTab";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 300px 40px;
+`;
 const tabCheckboxItems = {
   0: [
     // Beverage
@@ -90,13 +97,15 @@ function Menu() {
 
   return (
     <CommonRoot>
-      <MenuTab selectedTab={selectedTab} setSelectedTab={handleTabChange} />
-      <SubMenuTab
-        checkboxItems={tabCheckboxItems}
-        selectedTab={selectedTab}
-        onSubMenuChange={handleSubMenuChange}
-      />
-      <MenuGrid items={filteredItems} selectedSubMenu={selectedSubMenu} />
+      <MainContainer>
+        <MenuTab selectedTab={selectedTab} setSelectedTab={handleTabChange} />
+        <SubMenuTab
+          checkboxItems={tabCheckboxItems}
+          selectedTab={selectedTab}
+          onSubMenuChange={handleSubMenuChange}
+        />
+        <MenuGrid items={filteredItems} selectedSubMenu={selectedSubMenu} />
+      </MainContainer>
     </CommonRoot>
   );
 }

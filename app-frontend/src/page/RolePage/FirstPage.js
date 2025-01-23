@@ -45,19 +45,23 @@ const FirstPage = () => {
 
   return (
     <>
-      <MainContainer />
-
-      <WholeContainer>
-        <TitleContainer>DuskBlue</TitleContainer>
-        <ButtonContainer>
-          <CommonButton
-            {...ButtonProp}
-            text="사장님"
-            onClick={handleLoginClick}
-          />
-          <CommonButton {...ButtonProp} text="손님" onClick={handleMainClick} />
-        </ButtonContainer>
-      </WholeContainer>
+      <MainContainer>
+        <WholeContainer>
+          <TitleContainer>DuskBlue</TitleContainer>
+          <ButtonContainer>
+            <CommonButton
+              {...ButtonProp}
+              text="사장님"
+              onClick={handleLoginClick}
+            />
+            <CommonButton
+              {...ButtonProp}
+              text="손님"
+              onClick={handleMainClick}
+            />
+          </ButtonContainer>
+        </WholeContainer>
+      </MainContainer>
     </>
   );
 };

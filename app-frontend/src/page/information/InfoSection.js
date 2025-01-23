@@ -4,13 +4,13 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-top: ${(props) => props.marginTop || "20px"};
+  margin-top: ${(props) => props.marginTop || "5%"};
 `;
 
 const Emoji = styled.img`
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
+  width: 20%;
+  height: 20%;
+  margin-right: 5%;
 `;
 
 const InfoText = styled.p`

@@ -4,6 +4,7 @@ import CafeImage from "../images/Logo/background.png";
 // MainContainer.js
 const MainContainer = styled.div`
   height: 100vh;
+  width: 100%;
   background-image: url(${CafeImage});
   background-size: cover;
   background-position: center;

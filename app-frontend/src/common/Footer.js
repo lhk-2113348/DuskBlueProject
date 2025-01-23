@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Logo } from "../images/Logo/Logo.svg";
 import Instagram from "../images/Icons/Instagram.png";
 import { Link } from "react-router-dom";
+import CommonRoot from "./CommonRoot";
 const FooterStyle = styled.footer`
   width: 100%;
   background: ${(props) => props.theme.color.white};
@@ -68,31 +69,33 @@ const StyledLogo = styled(Logo)`
 `;
 const Footer = () => {
   return (
-    <FooterStyle>
-      <FooterTop>
-        <TextLinkStyle as={Link} to="/Store">
-          오시는길
-        </TextLinkStyle>
-        <TextLinkStyle as={Link} to="/Reservation">
-          예약문의
-        </TextLinkStyle>
-      </FooterTop>
-      <FooterContent>
-        <FooterMiddle>
-          <StyledLogo />
-          <TextBox>
-            <TextStyle>서울시 영등포구 당산로 38길 10 2층</TextStyle>
-            <TextStyle>대표이사 이해두,천영우</TextStyle>
-            <TextStyle>사업자 등록번호 000-000-000</TextStyle>
-            <TextStyle>
-              <StyledInstagram src={Instagram} />
-              https://instagram.com/duskblue_cafe
-            </TextStyle>
-            <TextStyle>© 2024 DuskBlue. All rights reserved.</TextStyle>
-          </TextBox>
-        </FooterMiddle>
-      </FooterContent>
-    </FooterStyle>
+    <CommonRoot>
+      <FooterStyle>
+        <FooterTop>
+          <TextLinkStyle as={Link} to="/Store">
+            오시는길
+          </TextLinkStyle>
+          <TextLinkStyle as={Link} to="/Reservation">
+            예약문의
+          </TextLinkStyle>
+        </FooterTop>
+        <FooterContent>
+          <FooterMiddle>
+            <StyledLogo />
+            <TextBox>
+              <TextStyle>서울시 영등포구 당산로 38길 10 2층</TextStyle>
+              <TextStyle>대표이사 이해두,천영우</TextStyle>
+              <TextStyle>사업자 등록번호 000-000-000</TextStyle>
+              <TextStyle>
+                <StyledInstagram src={Instagram} />
+                https://instagram.com/duskblue_cafe
+              </TextStyle>
+              <TextStyle>© 2024 DuskBlue. All rights reserved.</TextStyle>
+            </TextBox>
+          </FooterMiddle>
+        </FooterContent>
+      </FooterStyle>
+    </CommonRoot>
   );
 };
 export default Footer;

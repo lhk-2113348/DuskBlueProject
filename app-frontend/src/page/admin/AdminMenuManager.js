@@ -21,7 +21,8 @@ const ButtonProps = {
 };
 const TableContainer = styled.div`
   overflow-x: auto;
-  margin-top: -25%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;
 
 const Table = styled.table`

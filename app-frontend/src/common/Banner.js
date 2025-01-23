@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as IntroBanner } from "../images/Banner/IntroBanner.svg";
 import { ReactComponent as SeasonBanner } from "../images/Banner/SeasonBanner.svg";
 import { ReactComponent as CakeBanner } from "../images/Banner/CakeBanner.svg";
-
 import styled from "styled-components";
 import LeftButton from "../images/Icons/leftButton.png";
 import RightButton from "../images/Icons/RightButton.png";
@@ -13,6 +12,14 @@ const MainBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+`;
+const BannerImage = styled.div`
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  object-fit: contain;
+  width: 100%;
 `;
 const ArrowButton = styled.button`
   position: absolute;
@@ -31,18 +38,13 @@ const ArrowButton = styled.button`
   }
 `;
 const LeftArrow = styled(ArrowButton)`
-  left: 20px;
+  left: 10%;
 `;
 
 const RightArrow = styled(ArrowButton)`
-  right: 20px;
+  right: 10%;
 `;
 
-const BannerImage = styled.div`
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-`;
 const MoreButton = styled(Link)`
   position: absolute;
   bottom: 60px;

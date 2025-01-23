@@ -7,7 +7,12 @@ import {
   Marker,
   useNavermaps,
 } from "react-naver-maps";
-
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 300px 40px;
+`;
 const Heading = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl};
   font-weight: bold;
@@ -26,22 +31,24 @@ function Store() {
 
   return (
     <CommonRoot>
-      <Banner />
-      <Heading>Store</Heading>
+      <MainContainer>
+        <Banner />
+        <Heading>Store</Heading>
 
-      <MapDiv
-        style={{
-          height: 900,
-        }}
-      >
-        <NaverMap
-          defaultCenter={new naverMaps.LatLng(37.528916, 126.899543)}
-          defaultZoom={20}
+        <MapDiv
+          style={{
+            height: 900,
+          }}
         >
-          <Marker position={new naverMaps.LatLng(37.528916, 126.899543)} />
-        </NaverMap>
-      </MapDiv>
-      <SubHeading>주소 : 서울시 영등포구 당산로 38길 10 2층</SubHeading>
+          <NaverMap
+            defaultCenter={new naverMaps.LatLng(37.528916, 126.899543)}
+            defaultZoom={20}
+          >
+            <Marker position={new naverMaps.LatLng(37.528916, 126.899543)} />
+          </NaverMap>
+        </MapDiv>
+        <SubHeading>주소 : 서울시 영등포구 당산로 38길 10 2층</SubHeading>
+      </MainContainer>
     </CommonRoot>
   );
 }

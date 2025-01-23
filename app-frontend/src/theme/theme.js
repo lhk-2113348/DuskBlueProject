@@ -1,5 +1,3 @@
-const headerHeight = "310.7px"; // header(110.8px) 높이 + padding(50px)
-const contentsPaddingBottom = "30px";
 const color = {
   white: "#FFFFFF",
   black: "#000000",
@@ -15,14 +13,12 @@ const fontSize = {
 };
 const display = {
   sm: "900px",
-  lg: "1218px",
+  lg: "76.125rem", //1218px
 };
 const theme = {
   color,
   display,
   fontSize,
-  headerHeight,
-  contentsPaddingBottom,
 };
 
 export default theme;

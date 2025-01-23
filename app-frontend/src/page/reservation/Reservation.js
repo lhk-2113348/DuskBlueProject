@@ -13,6 +13,12 @@ import PhotoGrid from "../../common/photogrid";
 import InfoSection from "../information/InfoSection";
 import React, { useState } from "react";
 import RentalServicesImg from "../../images/Logo/RentalReseravtionDialog.png";
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 300px 40px;
+`;
 const Heading = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl};
   font-weight: bold;
@@ -140,66 +146,68 @@ function Reservation() {
 
   return (
     <CommonRoot>
-      <Banner />
-      <Heading>Reservation</Heading>
+      <MainContainer>
+        <Banner />
+        <Heading>Reservation</Heading>
 
-      <ContentWrapper>
-        <MainMenu
-          $marginTop="100px"
-          imgSrc={CakeReservation}
-          imgAlt="cake"
-          heading="Cake Reservation"
-          description="“소중한 날, 달콤하게 빛나는 기억으로”"
-          text="more"
-          $borderColor="transparent"
-          fontSize="20px"
-          onClick={handleCakeClickOpen}
-        />
-        <MainMenu
-          $marginTop="180px"
-          imgSrc={Rental}
-          imgAlt="rental"
-          heading="Rental Reservation"
-          description="“소중한 시간을 위한,<br/> 
+        <ContentWrapper>
+          <MainMenu
+            $marginTop="100px"
+            imgSrc={CakeReservation}
+            imgAlt="cake"
+            heading="Cake Reservation"
+            description="“소중한 날, 달콤하게 빛나는 기억으로”"
+            text="more"
+            $borderColor="transparent"
+            fontSize="20px"
+            onClick={handleCakeClickOpen}
+          />
+          <MainMenu
+            $marginTop="180px"
+            imgSrc={Rental}
+            imgAlt="rental"
+            heading="Rental Reservation"
+            description="“소중한 시간을 위한,<br/> 
 따뜻한 힐링의 공간을 준비해 드립니다”"
-          text="more"
-          $borderColor="transparent"
-          fontSize="20px"
-          onClick={handleRentalClickOpen}
-        />
-      </ContentWrapper>
-      <Dialog open={open} onClose={handleCakeClose} title="Cake Reservation">
-        {infoSections.map((section, index) => (
-          <InfoContainer key={index}>
-            <InfoSection
-              text={section.subtitle}
-              {...styleProps}
-              emojiSrc={section.emojiSrc}
-            />
-            <InfoInnerContainer>{section.content}</InfoInnerContainer>
-          </InfoContainer>
-        ))}
-      </Dialog>
-      <Dialog
-        open={show}
-        onClose={handleRentalCloseOpen}
-        title="Rental Reservation"
-      >
-        <InfoInnerContainer>
-          <Image src={RentalServicesImg} alt="rental" />
-          {RentalServices.map((section, index) => (
+            text="more"
+            $borderColor="transparent"
+            fontSize="20px"
+            onClick={handleRentalClickOpen}
+          />
+        </ContentWrapper>
+        <Dialog open={open} onClose={handleCakeClose} title="Cake Reservation">
+          {infoSections.map((section, index) => (
             <InfoContainer key={index}>
-              <InfoSection text="예약방법" {...styleProps} emojiSrc={Bag} />
               <InfoSection
-                text={section.text}
+                text={section.subtitle}
                 {...styleProps}
                 emojiSrc={section.emojiSrc}
               />
               <InfoInnerContainer>{section.content}</InfoInnerContainer>
             </InfoContainer>
           ))}
-        </InfoInnerContainer>
-      </Dialog>
+        </Dialog>
+        <Dialog
+          open={show}
+          onClose={handleRentalCloseOpen}
+          title="Rental Reservation"
+        >
+          <InfoInnerContainer>
+            <Image src={RentalServicesImg} alt="rental" />
+            {RentalServices.map((section, index) => (
+              <InfoContainer key={index}>
+                <InfoSection text="예약방법" {...styleProps} emojiSrc={Bag} />
+                <InfoSection
+                  text={section.text}
+                  {...styleProps}
+                  emojiSrc={section.emojiSrc}
+                />
+                <InfoInnerContainer>{section.content}</InfoInnerContainer>
+              </InfoContainer>
+            ))}
+          </InfoInnerContainer>
+        </Dialog>
+      </MainContainer>
     </CommonRoot>
   );
 }

@@ -23,6 +23,7 @@ import FindPW from "./page/Auth/FindPW";
 import React, { useEffect } from "react";
 
 const Root = styled.div`
+  width: 100%;
   & *,
   p {
     font-family: "Noto Sans KR";
