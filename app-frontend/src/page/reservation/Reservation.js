@@ -17,6 +17,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+   align-items: center;
   padding: 300px 40px;
 `;
 const Heading = styled.h1`
@@ -31,7 +32,7 @@ const ContentWrapper = styled.div`
 const InfoContainer = styled("div")`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+ justify-content: center;
   align-items: flex-start;
   gap: 20px;
 `;

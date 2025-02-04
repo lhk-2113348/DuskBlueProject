@@ -8,14 +8,32 @@ const GridItem = styled.div`
   justify-content: center;
   padding: 10px;
 `;
+
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);  
   gap: 40px;
   margin: 40px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 80px; 
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; 
+    gap: 80px; 
+    margin: 20px 10px; 
+  }
 `;
+
 const Card = styled.div`
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 350px;
   position: relative;
   transform-style: preserve-3d;
@@ -25,7 +43,18 @@ const Card = styled.div`
   &:hover {
     transform: rotateY(180deg);
   }
+
+  @media (max-width: 768px) {
+    max-width: 250px; // 작은 화면에서 카드 크기 줄이기
+    height: 300px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 200px; // 모바일 화면에서 카드 크기 더 줄이기
+    height: 250px;
+  }
 `;
+
 const CardFront = styled.div`
   position: absolute;
   width: 100%;
@@ -40,8 +69,8 @@ const CardFront = styled.div`
 
 const CardBack = styled.div`
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -54,12 +83,12 @@ const CardBack = styled.div`
   transform: rotateY(180deg);
   border-radius: 10px;
 `;
+
 const Image = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  max-width: 100%;
 `;
 
 const InfoSection = ({ imgSrc, name, description, price, HotIce }) => {
@@ -87,6 +116,7 @@ const InfoSection = ({ imgSrc, name, description, price, HotIce }) => {
     </GridItem>
   );
 };
+
 const MenuGrid = ({ selectedSubMenu, items }) => {
   const filteredItems =
     selectedSubMenu && selectedSubMenu !== ""
@@ -96,6 +126,7 @@ const MenuGrid = ({ selectedSubMenu, items }) => {
   if (!items || items.length === 0) {
     return <div>No items available</div>; // 아이템이 없을 때 표시할 메시지
   }
+
   return (
     <GridContainer>
       {filteredItems.map((item, index) => (
@@ -111,4 +142,5 @@ const MenuGrid = ({ selectedSubMenu, items }) => {
     </GridContainer>
   );
 };
+
 export default MenuGrid;

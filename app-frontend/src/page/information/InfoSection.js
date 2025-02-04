@@ -8,8 +8,8 @@ const InfoContainer = styled.div`
 `;
 
 const Emoji = styled.img`
-  width: 20%;
-  height: 20%;
+  width: 10%;
+  height: 10%;
   margin-right: 5%;
 `;
 

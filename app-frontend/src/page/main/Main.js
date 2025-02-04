@@ -5,7 +5,6 @@ import Coffee from "../../images/Logo/MainCoffee.png";
 import NonCoffee from "../../images/Logo/MainNonCoffee.png";
 import Alcoholic from "../../images/Logo/MainAlcoholic.png";
 import Dessert from "../../images/Logo/MainDessert.png";
-import MainMenu2 from "./MainMenu2";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const MainContainer = styled.div`
@@ -13,6 +12,31 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 300px 40px;
+  align-items: center;
+  min-height: 100vh;
+  @media (max-width: 1024px){
+  padding:150px 20px
+  }
+  @media (max-width: 768px) {
+    padding: 100px 15px;
+  }
+     @media (max-width: 480px) {
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    margin-top: 35%;
+  }
+`;
+const MenuWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  width: 100%;
+  place-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
 function Main() {
   const navigate = useNavigate();
@@ -24,6 +48,8 @@ function Main() {
     <CommonRoot>
       <MainContainer>
         <Banner />
+        <MenuWrapper>
+
         <MainMenu
           imgSrc={Coffee}
           alt="coffee"
@@ -34,7 +60,7 @@ function Main() {
           width="30%"
           fontSize="18px"
         />
-        <MainMenu2
+        <MainMenu
           imgSrc={NonCoffee}
           alt="nonCoffee"
           heading="논커피"
@@ -54,7 +80,7 @@ function Main() {
           fontSize="18px"
           width="30%"
         />
-        <MainMenu2
+        <MainMenu
           imgSrc={Dessert}
           alt="dessert"
           heading="디저트"
@@ -64,6 +90,8 @@ function Main() {
           fontSize="18px"
           width="30%"
         />
+                </MenuWrapper>
+
       </MainContainer>
     </CommonRoot>
   );

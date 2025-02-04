@@ -9,8 +9,15 @@ const MainContainer = styled.div`
   align-items: center;
   margin-top: ${(props) => props.$marginTop || "37px"};
   width: 100%;
-  height: 400px; // 배너 높이 조정
+  height: 400px; 
   gap: 50px;
+  max-width: 1200px;
+  @media (max-width: 768px){
+   flex-direction: column;
+    height: auto;
+    text-align: center;
+    gap: 20px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -20,13 +27,28 @@ const MainContent = styled.div`
   justify-content: center;
   align-items: flex-end;
   padding: 20px;
+  @media (max-width: 768px) {
+    align-items: center;
+    width: 90%;
+  }
 `;
 const MainImage = styled.img`
-  flex: 1;
-  img {
+  flex: 1.2;
+  width: 100%; 
+  height: auto;
+  object-fit: contain;
+  max-width: 900px;
+  
+  @media (max-width: 1024px) {
+    width: 90%; 
+  }
+
+  @media (max-width: 768px) {
+    width: 80%; 
+  }
+
+  @media (max-width: 480px) {
     width: 100%;
-    height: auto;
-    object-fit: contain;
   }
 `;
 const SubHeading = styled.p`
@@ -34,16 +56,36 @@ const SubHeading = styled.p`
   color: ${(props) => props.theme.color.black};
   margin-bottom: -10px;
   margin-top: -5px;
+   @media (max-width: 768px) {
+    font-size: ${(props) => props.theme.fontSize.md};
+  }
+     @media (max-width: 480px) {
+    font-size: ${(props) => props.theme.fontSize.base};
+  }
 `;
 const Description = styled.p`
   font-size: ${(props) => props.theme.fontSize.md};
   color: #333;
+   @media (max-width: 768px) {
+    font-size: ${(props) => props.theme.fontSize.sm};
+  }
+
+  @media (max-width: 480px) {
+    font-size: ${(props) => props.theme.fontSize.xs};
+  }
 `;
 const Heading = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl};
   font-weight: bold;
   color: ${(props) => props.theme.color.black};
   margin-bottom: -5px;
+    @media (max-width: 768px) {
+    font-size: ${(props) => props.theme.fontSize.lg};
+  }
+
+  @media (max-width: 480px) {
+    font-size: ${(props) => props.theme.fontSize.md};
+  }
 `;
 
 const MainMenu = ({

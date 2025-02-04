@@ -6,12 +6,26 @@ import MenuTab from "./MenuTab";
 import SubMenuTab from "./SubMenuTab";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 300px 40px;
+
+  @media (max-width: 1024px) {
+    padding: 250px 30px;  
+  }
+
+  @media (max-width: 768px) {
+    padding: 180px 20px; 
+  }
+
+  @media (max-width: 480px) {
+    padding: 100px 10px;  
+  }
 `;
+
 const tabCheckboxItems = {
   0: [
     // Beverage
@@ -24,19 +38,18 @@ const tabCheckboxItems = {
   1: [
     //Dessert
     { label: "전체", value: "" }, // 전체 탭
-
     { label: "레어크림치즈 & 케이크&아이스크림", value: "dessert1" },
     { label: "티라미수&스콘&크로플&안주", value: "dessert2" },
   ],
   2: [
     //Season
     { label: "전체", value: "" }, // 전체 탭
-
     { label: "봄&가을", value: "spring" },
     { label: "여름", value: "summer" },
     { label: "겨울", value: "winter" },
   ],
 };
+
 function Menu() {
   const { category } = useParams(); // category와 subCategory URL 파라미터 받기
   const [selectedTab, setSelectedTab] = useState(0);
@@ -57,9 +70,11 @@ function Menu() {
     setSelectedTab(newTab);
     setSelectedSubmenu("");
   };
+
   const handleSubMenuChange = (value) => {
     setSelectedSubmenu(value);
   };
+
   const filteredItems = useMemo(() => {
     let items = [];
 
