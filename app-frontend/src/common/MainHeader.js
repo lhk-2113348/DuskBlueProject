@@ -15,18 +15,18 @@ const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 210px;
-  max-width: 800px;
+  max-width: 600px;
   width: 80%;
 
   @media (max-width: 768px) {
     margin-top: 100px;
-     margin-left: -50px;
+    margin-left: -50px;
     width: 80%;
   }
 
   @media (max-width: 480px) {
     margin-top: 60px;
-    margin-left: -25px; 
+    margin-left: -25px;
     width: 80%;
   }
 `;
@@ -34,17 +34,17 @@ const LogoLink = styled(Link)`
 const StyledLogo = styled(Logo)`
   width: 90%;
   height: auto;
-  
+
   @media (max-width: 1024px) {
-    width: 90%;  
+    width: 90%;
   }
 
   @media (max-width: 768px) {
-    width: 80%;  
+    width: 80%;
   }
 
   @media (max-width: 480px) {
-    width: 60%;  
+    width: 60%;
   }
 `;
 
@@ -61,9 +61,8 @@ const MenuBox = styled.div`
   @media (max-width: 768px) {
     height: 180px;
     padding: 0 30px;
-    align-items: center; 
-        gap: 45%;
-
+    align-items: center;
+    gap: 45%;
   }
   @media (max-width: 480px) {
     height: 120px;
@@ -77,13 +76,13 @@ const LinkContainer = styled.div`
   gap: 5%;
   position: relative;
   align-items: center;
- @media (max-width: 1024px) {
-    gap: 3%; 
+  @media (max-width: 1024px) {
+    gap: 3%;
   }
 
   @media (max-width: 768px) {
     flex-direction: column;
-    display: none; 
+    display: none;
   }
 `;
 
@@ -93,7 +92,7 @@ const MenuStyledLink = styled(Link)`
   font-size: 32px;
   font-weight: 500;
   display: block;
-   white-space: nowrap; 
+  white-space: nowrap;
   flex-shrink: 0;
   &:hover {
     background-color: transparent;
@@ -118,8 +117,8 @@ const DropdownButton = styled.button`
   border: none;
   color: black;
   cursor: pointer;
-   margin-right: 20px;
-margin-top:10%;
+  margin-right: 20px;
+  margin-top: 10%;
   @media (min-width: 769px) {
     display: none;
   }
@@ -135,14 +134,14 @@ margin-top:10%;
 const DropdownMenu = styled.div`
   display: ${(props) => (props.open ? "block" : "none")};
   position: fixed;
-  top: 50px; 
+  top: 50px;
   right: 0;
   background: ${(props) => props.theme.color.orange};
   padding: 10px;
   border-radius: 5px;
   z-index: 200;
   animation: slideIn 0.3s forwards;
-  width: 200px; 
+  width: 200px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transform: translateX(${(props) => (props.open ? "0" : "100%")});
   transition: all 0.3s ease;
@@ -180,7 +179,6 @@ const DropdownIcon = styled.div`
 
 export function MainHeader() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  
 
   const menuList = [
     { label: "DUSKBLUE", path: "/introduction" },
@@ -208,14 +206,18 @@ export function MainHeader() {
           </LinkContainer>
           <DropdownButton onClick={toggleDropdown}>
             <DropdownIcon>
-              <div/>
-              <div/>
-              <div/>
-              </DropdownIcon>
-              </DropdownButton>
+              <div />
+              <div />
+              <div />
+            </DropdownIcon>
+          </DropdownButton>
           <DropdownMenu open={dropdownOpen}>
             {menuList.map((item, index) => (
-              <MenuStyledLink to={item.path} key={index} onClick={() => setDropdownOpen(false)}>
+              <MenuStyledLink
+                to={item.path}
+                key={index}
+                onClick={() => setDropdownOpen(false)}
+              >
                 {item.label}
               </MenuStyledLink>
             ))}

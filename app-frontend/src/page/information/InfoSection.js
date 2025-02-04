@@ -4,7 +4,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-top: ${(props) => props.marginTop || "5%"};
+  margin-top: ${(props) => props.marginTop || "0%"};
 `;
 
 const Emoji = styled.img`
@@ -20,7 +20,7 @@ const InfoText = styled.p`
 const InfoSection = ({ emojiSrc, text, color, fontSize, marginTop }) => {
   return (
     <InfoContainer marginTop={marginTop}>
-      <Emoji src={emojiSrc} alt="emoji" />
+      <Emoji src={emojiSrc} />
       <InfoText color={color} fontSize={fontSize}>
         {text}
       </InfoText>

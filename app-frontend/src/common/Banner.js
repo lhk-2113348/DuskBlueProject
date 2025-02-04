@@ -28,8 +28,6 @@ const MainBanner = styled.div`
     margin-top: 40px;
     height: 200px;
   }
-
-
 `;
 const BannerImage = styled.div`
   display: flex;
@@ -37,12 +35,12 @@ const BannerImage = styled.div`
   overflow: hidden;
   object-fit: contain;
   overflow: hidden;
-  svg{
-  width:100%;
-  object-fit: cover;
+  svg {
+    width: 100%;
+    object-fit: cover;
   }
-   @media (max-width: 480px) {
-    height: 150px; 
+  @media (max-width: 480px) {
+    height: 150px;
   }
 `;
 const ArrowButton = styled.button`
@@ -51,13 +49,9 @@ const ArrowButton = styled.button`
   z-index: 2;
   background: none;
   border: none;
-  color: white;
-  font-size: 2em;
   cursor: pointer;
   transform: translateY(-50%);
-  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
-  opacity: ${(props) => (props.visible ? 1 : 0)};
-  transition: opacity 0.3s ease, visibility 0s ease 0.3s;
+  display: ${(props) => (props.visible ? "block" : "none")};
 
   &:hover {
     opacity: 0.7;
@@ -80,12 +74,10 @@ const ArrowButton = styled.button`
 
 const LeftArrow = styled(ArrowButton)`
   left: 10%;
-  
 `;
 
 const RightArrow = styled(ArrowButton)`
   right: 10%;
- 
 `;
 
 const MoreButton = styled(Link)`
@@ -146,23 +138,25 @@ const Banner = () => {
 
   return (
     <>
-    {!isMobile && (
-    <MainBanner onPointerOver={buttonDisplayOn} onPointerOut={buttonDisplayOff}>
-      <LeftArrow onClick={imgChangeLeft} display={display}>
-        <img src={LeftButton} alt="LeftButton" />
-      </LeftArrow>
-      <BannerImage>
-        {images[img]}
-        {img === 0 && <MoreButton to="/introduction">more</MoreButton>}
-        {img === 1 && <MoreButton to="/menu/season">more</MoreButton>}
-        {img === 2 && <MoreButton to="/reservation">more</MoreButton>}
-      </BannerImage>
-      <RightArrow onClick={imgChangeRight} display={display}>
-        <img src={RightButton} alt="RightButton" />
-      </RightArrow>
-    </MainBanner>
-     )}
-
+      {!isMobile && (
+        <MainBanner
+          onPointerOver={buttonDisplayOn}
+          onPointerOut={buttonDisplayOff}
+        >
+          <LeftArrow onClick={imgChangeLeft} display={display}>
+            <img src={LeftButton} alt="LeftButton" />
+          </LeftArrow>
+          <BannerImage>
+            {images[img]}
+            {img === 0 && <MoreButton to="/introduction">more</MoreButton>}
+            {img === 1 && <MoreButton to="/menu/season">more</MoreButton>}
+            {img === 2 && <MoreButton to="/reservation">more</MoreButton>}
+          </BannerImage>
+          <RightArrow onClick={imgChangeRight} display={display}>
+            <img src={RightButton} alt="RightButton" />
+          </RightArrow>
+        </MainBanner>
+      )}
     </>
   );
 };

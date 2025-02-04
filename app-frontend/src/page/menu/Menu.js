@@ -11,18 +11,18 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 300px 40px;
+  padding: 400px 40px;
 
   @media (max-width: 1024px) {
-    padding: 250px 30px;  
+    padding: 250px 30px;
   }
 
   @media (max-width: 768px) {
-    padding: 180px 20px; 
+    padding: 180px 20px;
   }
 
   @media (max-width: 480px) {
-    padding: 100px 10px;  
+    padding: 100px 10px;
   }
 `;
 

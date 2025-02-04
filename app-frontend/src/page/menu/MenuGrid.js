@@ -11,23 +11,23 @@ const GridItem = styled.div`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);  
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 80px;
   margin: 40px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 80px; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr; 
-    gap: 80px; 
-    margin: 20px 10px; 
+    grid-template-columns: 1fr;
+    gap: 80px;
+    margin: 20px 10px;
   }
 `;
 

@@ -5,9 +5,6 @@ import CakeReservation from "../../images/Logo/CakeReservation.png";
 import Rental from "../../images/Logo/RentalReservation.png";
 import styled from "styled-components";
 import Dialog from "../../common/Dialog";
-import instagram from "../../images/Icons/Instagram.png";
-import call from "../../images/Icons/WhiteCall.png";
-import Alarm from "../../images/Icons/WhiteAlarm.png";
 import Bag from "../../images/Icons/Bag.png";
 import PhotoGrid from "../../common/photogrid";
 import InfoSection from "../information/InfoSection";
@@ -17,7 +14,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-   align-items: center;
+  align-items: center;
   padding: 300px 40px;
 `;
 const Heading = styled.h1`
@@ -30,9 +27,9 @@ const ContentWrapper = styled.div`
   padding-bottom: 100px;
 `;
 const InfoContainer = styled("div")`
-  display: flex;
+  display: block;
   flex-direction: row;
- justify-content: center;
+  justify-content: center;
   align-items: flex-start;
   gap: 20px;
 `;
@@ -48,23 +45,18 @@ const styleProps = {
 };
 const links = [
   {
-    emojiSrc: instagram,
     text: "http://instagram.com/duskblue_cafe",
   },
   {
-    emojiSrc: call,
     text: "070-4243-3264",
   },
   {
-    emojiSrc: Alarm,
     text: "픽업 날짜에서 최대 하루 전에 주문해주셔야 합니다 : )",
   },
   {
-    emojiSrc: Alarm,
     text: "간단한 문구 레터링 가능합니다 (2000원추가)",
   },
   {
-    emojiSrc: Alarm,
     text: "짧은 막대초 기본으로 나갑니다. (매장에서 디자인 초 구매 가능합니다)",
   },
 ];
@@ -79,19 +71,14 @@ const infoSections = [
     subtitle: "예약 방법",
     emojiSrc: Bag,
     content: links.map((link, index) => (
-      <InfoSection
-        key={index}
-        emojiSrc={link.emojiSrc}
-        text={link.text}
-        {...styleProps}
-      />
+      <InfoSection key={index} text={link.text} {...styleProps} />
     )),
   },
   {
     subtitle: "사이즈",
     emojiSrc: Bag,
     content: size.map((item, index) => (
-      <InfoSection key={index} emojiSrc={Alarm} text={item} {...styleProps} />
+      <InfoSection key={index} text={item} {...styleProps} />
     )),
   },
   {
@@ -99,27 +86,20 @@ const infoSections = [
     emojiSrc: Bag,
     content: (
       <>
-        <InfoSection
-          emojiSrc={Alarm}
-          text="계좌번호 1005-304-242173 우리은행"
-          {...styleProps}
-        />
-        <InfoSection emojiSrc={Alarm} text="입금자명 이해두" {...styleProps} />
+        <InfoSection text="계좌번호 1005-304-242173 우리은행" {...styleProps} />
+        <InfoSection text="입금자명 이해두" {...styleProps} />
       </>
     ),
   },
 ];
 const RentalServices = [
   {
-    emojiSrc: instagram,
     text: "http://instagram.com/duskblue_cafe",
   },
   {
-    emojiSrc: call,
     text: "070-4243-3264",
   },
   {
-    emojiSrc: Alarm,
     text: "대관 문의는 전화 문의 주시면 더 자세항 사항 안내하겠습니다",
   },
 ];
@@ -195,15 +175,10 @@ function Reservation() {
         >
           <InfoInnerContainer>
             <Image src={RentalServicesImg} alt="rental" />
+            <InfoSection text="예약방법" {...styleProps} emojiSrc={Bag} />
             {RentalServices.map((section, index) => (
               <InfoContainer key={index}>
-                <InfoSection text="예약방법" {...styleProps} emojiSrc={Bag} />
-                <InfoSection
-                  text={section.text}
-                  {...styleProps}
-                  emojiSrc={section.emojiSrc}
-                />
-                <InfoInnerContainer>{section.content}</InfoInnerContainer>
+                <InfoSection text={section.text} {...styleProps} />
               </InfoContainer>
             ))}
           </InfoInnerContainer>
