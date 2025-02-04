@@ -30,13 +30,13 @@ export default function MenuTab({ selectedTab, setSelectedTab }) {
         sx={{
           height: "auto",
           display: "flex",
-          flexDirection: "row",  
-          justifyContent: "center", 
-          flexWrap: "wrap", 
-          [theme.breakpoints.down("md")]: { 
-            flexDirection: "column", 
+          flexDirection: "row",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          [theme.breakpoints.down("md")]: {
+            flexDirection: "column",
           },
-          [theme.breakpoints.down("sm")]: { 
+          [theme.breakpoints.down("sm")]: {
             fontSize: "30px",
           },
         }}

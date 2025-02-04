@@ -26,15 +26,15 @@ const MainBanner = styled.div`
 
   @media (max-width: 480px) {
     margin-top: 40px;
-    height: 200px;
+    height: 200px; /* 배너 높이 수정 */
   }
 `;
+
 const BannerImage = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
   object-fit: contain;
-  overflow: hidden;
   svg {
     width: 100%;
     object-fit: cover;
@@ -43,48 +43,39 @@ const BannerImage = styled.div`
     height: 150px;
   }
 `;
+
 const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
-  z-index: 2;
+  z-index: 3;
   background: none;
   border: none;
   cursor: pointer;
   transform: translateY(-50%);
   display: ${(props) => (props.visible ? "block" : "none")};
-
   &:hover {
     opacity: 0.7;
   }
 
   img {
-    width: 50px;
-    height: 50px;
-  }
-
-  @media (max-width: 768px) {
-    img {
-      width: 40px;
-      height: 40px;
-    }
-    left: 5%;
-    right: 5%;
+    width: 20px;
+    height: 20px;
   }
 `;
 
 const LeftArrow = styled(ArrowButton)`
-  left: 10%;
+  left: 18%;
 `;
 
 const RightArrow = styled(ArrowButton)`
-  right: 10%;
+  right: 18%;
 `;
 
 const MoreButton = styled(Link)`
   position: absolute;
-  top: 70%; 
-  left: 85%; 
-  transform: translate(-50%, -50%); /* To perfectly center it */
+  bottom: 20%;
+  right: 20%;
+  transform: translateX(-50%);
   padding: 10px 20px;
   background-color: transparent;
   color: white;
@@ -95,12 +86,6 @@ const MoreButton = styled(Link)`
   &:hover {
     color: #d3d3d3;
   }
-
-  @media (max-width: 768px) {
-    font-size: 0.6rem;
-  }
-
-}
 `;
 
 const Banner = () => {
@@ -123,6 +108,7 @@ const Banner = () => {
 
   const buttonDisplayOn = () => setDisplay("block");
   const buttonDisplayOff = () => setDisplay("none");
+
   useEffect(() => {
     const interval = setInterval(() => {
       imgChangeRight(); // 5초마다 자동으로 이미지를 오른쪽으로 변경
@@ -143,7 +129,7 @@ const Banner = () => {
           onPointerOver={buttonDisplayOn}
           onPointerOut={buttonDisplayOff}
         >
-          <LeftArrow onClick={imgChangeLeft} display={display}>
+          <LeftArrow onClick={imgChangeLeft} visible={display === "block"}>
             <img src={LeftButton} alt="LeftButton" />
           </LeftArrow>
           <BannerImage>
@@ -152,7 +138,7 @@ const Banner = () => {
             {img === 1 && <MoreButton to="/menu/season">more</MoreButton>}
             {img === 2 && <MoreButton to="/reservation">more</MoreButton>}
           </BannerImage>
-          <RightArrow onClick={imgChangeRight} display={display}>
+          <RightArrow onClick={imgChangeRight} visible={display === "block"}>
             <img src={RightButton} alt="RightButton" />
           </RightArrow>
         </MainBanner>
@@ -160,4 +146,5 @@ const Banner = () => {
     </>
   );
 };
+
 export default Banner;

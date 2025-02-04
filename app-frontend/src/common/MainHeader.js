@@ -16,17 +16,16 @@ const LogoLink = styled(Link)`
   align-items: center;
   margin-top: 210px;
   max-width: 600px;
-  width: 80%;
 
   @media (max-width: 768px) {
-    margin-top: 100px;
-    margin-left: -50px;
+    margin-top: 80px;
+    margin-left: -20px;
     width: 80%;
   }
 
   @media (max-width: 480px) {
-    margin-top: 60px;
-    margin-left: -25px;
+    margin-top: -10px;
+    margin-left: 15px;
     width: 80%;
   }
 `;
@@ -44,7 +43,7 @@ const StyledLogo = styled(Logo)`
   }
 
   @media (max-width: 480px) {
-    width: 60%;
+    width: 65%;
   }
 `;
 
