@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "LombokTest",
+      "request": "launch",
+      "mainClass": "com.dusk.dkb.dto.LombokTest",
+      "projectName": "dkb"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-DBKApplication<dkb>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.dusk.dkb.DBKApplication",
+      "projectName": "dkb",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
