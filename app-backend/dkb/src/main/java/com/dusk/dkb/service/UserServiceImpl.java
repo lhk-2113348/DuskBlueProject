@@ -19,7 +19,6 @@ public class UserServiceImpl {
     }
 
     public UserDTO registerMember(UserDTO userDTO) {
-        // DTO를 엔티티로 변환
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
         userEntity.setPassword(userDTO.getPassword());
@@ -28,10 +27,8 @@ public class UserServiceImpl {
         userEntity.setAnswer(userDTO.getAnswer());
         userEntity.setRole(Role.USER);  // 기본적으로 USER 역할을 설정
 
-        // 엔티티 저장
         UserEntity savedUser = userRepository.save(userEntity);
 
-        // 저장된 엔티티를 DTO로 변환하여 반환
         UserDTO savedUserDTO = new UserDTO(savedUser.getUsername(), savedUser.getPassword(), savedUser.getEmail(), savedUser.getQuestion(), savedUser.getAnswer());
         return savedUserDTO;
     }

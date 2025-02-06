@@ -73,7 +73,6 @@ const MenuBox = styled.div`
 const LinkContainer = styled.div`
   display: flex;
   gap: 5%;
-  position: relative;
   align-items: center;
   @media (max-width: 1024px) {
     gap: 3%;
