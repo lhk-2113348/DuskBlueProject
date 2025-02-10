@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components"; // styled-components 임포트
 import Dialog from "../../common/Dialog";
 import CommonButton from "../../common/CommonButton";
+import axios from "axios";
 
 const ButtonProps = {
   background: "#D95F03",
@@ -111,7 +112,6 @@ const AdminRegisterForm = ({
     ],
   };
 
-  // 수정된 부분: selectedMenu 값이 없을 때도 정상적으로 처리
   useEffect(() => {
     if (selectedMenu) {
       setFormData({
@@ -203,6 +203,17 @@ const AdminRegisterForm = ({
       ...formData,
       id: selectedMenu ? selectedMenu.id : new Date().getTime(),
     };
+    axios
+      .post("/api/menus", newMenu)
+      .then((response) => {
+        setShowSuccessDialog(true); // 성공 다이얼로그
+        resetForm();
+      })
+      .catch((error) => {
+        setShowErrorDialog(true); // 실패 다이얼로그
+        console.error("메뉴 등록 실패:", error);
+      });
+
     if (selectedMenu) {
       onMenuSubmit(newMenu);
       console.log("등록된 메뉴:", newMenu);
@@ -228,16 +239,19 @@ const AdminRegisterForm = ({
       ...formData,
       id: selectedMenu ? selectedMenu.id : new Date().getTime(),
     };
-    if (selectedMenu) {
-      onMenuEdit({
-        ...selectedMenu,
-        ...updatedMenu,
-      });
-      setShowEditDialog(true);
-    }
 
-    console.log("업데이트메뉴:", updatedMenu);
+    axios
+      .put(`/api/menus/${selectedMenu.id}`, updatedMenu)
+      .then((response) => {
+        setShowEditDialog(true); // 수정 성공 다이얼로그
+        resetForm();
+      })
+      .catch((error) => {
+        setShowErrorDialog(true); // 실패 다이얼로그
+        console.error("메뉴 수정 실패:", error);
+      });
   };
+
   //폼리셋
   const resetForm = () => {
     setFormData({
@@ -251,6 +265,7 @@ const AdminRegisterForm = ({
       hotIce: "",
     });
   };
+
   const categoryOptions = [
     { value: "", label: "카테고리를 선택하세요" },
     { value: 0, label: "Drinks" },
